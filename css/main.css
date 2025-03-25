@@ -22,7 +22,6 @@ h4 {
     font-size: 8px;
 }
 
-
 /* Standardfarbe für einen nicht besuchten Link */
 a:link {
     color: rgb(172, 252, 255);
@@ -43,27 +42,17 @@ a:active {
     color: orange;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer-logo {
-    width: 128px; /* Verdoppelte Größe (2x Scale) */
+    width: 128px;
+    /* Verdoppelte Größe (2x Scale) */
     height: 128px;
-    image-rendering: pixelated; /* Pixel-Rendering aktivieren */
-    image-rendering: crisp-edges; /* Alternativer Fallback */
+    image-rendering: pixelated;
+    /* Pixel-Rendering aktivieren */
+    image-rendering: crisp-edges;
+    /* Alternativer Fallback */
     display: block;
-    margin: 0 auto; /* Zentriert das Bild innerhalb des Containers */
+    margin: 0 auto;
+    /* Zentriert das Bild innerhalb des Containers */
 }
 
 .footer {
@@ -77,15 +66,19 @@ a:active {
 
 .footer-container {
     display: flex;
-    justify-content: center; /* Zentriert die drei Spalten */
-    flex-wrap: wrap; /* Umbrechen auf kleine Bildschirme */
+    justify-content: center;
+    /* Zentriert die drei Spalten */
+    flex-wrap: wrap;
+    /* Umbrechen auf kleine Bildschirme */
     gap: 20px;
     padding: 10px;
 }
 
 .footer-column {
-    flex: 1 1 calc(33.33% - 20px); /* Spalten gleichmäßig verteilen */
-    max-width: 300px; /* Maximale Breite */
+    flex: 1 1 calc(33.33% - 20px);
+    /* Spalten gleichmäßig verteilen */
+    max-width: 300px;
+    /* Maximale Breite */
     text-align: left;
 }
 
@@ -96,7 +89,8 @@ a:active {
 }
 
 .footer-column ul {
-    list-style: none; /* Entfernt Bullet Points */
+    list-style: none;
+    /* Entfernt Bullet Points */
     padding: 0;
 }
 
@@ -111,7 +105,8 @@ a:active {
 }
 
 .footer-column a:hover {
-    color: #a2ffff; /* Hover-Farbe */
+    color: #a2ffff;
+    /* Hover-Farbe */
 }
 
 .footer p {
@@ -121,22 +116,23 @@ a:active {
 }
 
 .footer-links {
-    margin-top: 5px; /* Abstand zum Copyright-Text */
+    margin-top: 5px;
+    /* Abstand zum Copyright-Text */
 }
 
 .footer-links a {
     color: #b89b9b;
     text-decoration: none;
-    margin: 0 10px; /* Abstand zwischen den Links */
+    margin: 0 10px;
+    /* Abstand zwischen den Links */
     font-size: 14px;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #a2ffff; /* Farbe beim Hover */
+    color: #a2ffff;
+    /* Farbe beim Hover */
 }
-
-
 
 /* P A R A L L A X */
 
@@ -158,7 +154,8 @@ a:active {
     background-repeat: repeat-x;
     background-size: auto 100%;
     transform-origin: center;
-    transition: transform 0.5s ease-out; /* Animation für weichen Übergang */
+    transition: transform 0.5s ease-out;
+    /* Animation für weichen Übergang */
 
 }
 
@@ -170,19 +167,22 @@ a:active {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Deaktiviert Interaktionen für das Overlay */
+    pointer-events: none;
+    /* Deaktiviert Interaktionen für das Overlay */
 }
 
 .social-media-container {
     position: relative;
-    z-index: 9999; /* Sehr hoher Wert */
+    z-index: 9999;
+    /* Sehr hoher Wert */
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: flex-end;
     margin-right: 30px;
     margin-top: 20px;
-    pointer-events: auto; /* Aktiviert Interaktionen für die Icons */
+    pointer-events: auto;
+    /* Aktiviert Interaktionen für die Icons */
 }
 
 .social-icon {
@@ -200,14 +200,17 @@ a:active {
 /* artists social icons */
 .social-artist-media-container {
     position: relative;
-    z-index: 9999; /* Sehr hoher Wert */
+    z-index: 9999;
+    /* Sehr hoher Wert */
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    pointer-events: auto; /* Aktiviert Interaktionen für die Icons */
-    flex-wrap: wrap; /* Ermöglicht das Umfließen der Icons */
+    pointer-events: auto;
+    /* Aktiviert Interaktionen für die Icons */
+    flex-wrap: wrap;
+    /* Ermöglicht das Umfließen der Icons */
 }
 
 .social-artist-icon {
@@ -220,7 +223,6 @@ a:active {
 .social-artist-icon:hover {
     filter: brightness(1.2);
 }
-
 
 /* L O G O */
 
@@ -265,11 +267,14 @@ a:active {
         justify-content: center;
         margin-right: 0;
     }
-    
+
     .footer {
-        font-size: 12px; /* Kleinere Schrift für Mobilgeräte */
-        padding: 8px 0; /* Weniger Abstand */
+        font-size: 12px;
+        /* Kleinere Schrift für Mobilgeräte */
+        padding: 8px 0;
+        /* Weniger Abstand */
     }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -280,7 +285,8 @@ a:active {
         max-width: 100%;
     }
 }
-    /* MAIN MENU BUTTON */
+
+/* MAIN MENU BUTTON */
 .button {
     width: 128px;
     height: 32px;
@@ -350,7 +356,7 @@ a:active {
     color: #ffffff;
     text-align: center;
     display: flex;
-    
+
     /* Flexbox aktivieren */
     flex-wrap: wrap;
     /* Container umbrechen, wenn Platz fehlt */
@@ -360,7 +366,6 @@ a:active {
     /* Abstand zwischen den inneren Containern */
 
 }
-
 
 /* Hauptcontainer */
 .content-container {
@@ -451,7 +456,7 @@ a:active {
     box-shadow: 0 6px #000000;
     margin-bottom: 10px;
     margin-top: 10px;
-    
+
 }
 
 .inner-container-button:hover {
@@ -538,6 +543,3 @@ a:active {
     /* Abstand zwischen Bild und Text */
     image-rendering: pixelated;
 }
-
-
-
