@@ -1,0 +1,543 @@
+@font-face {
+    font-family: "PixelFont";
+    src: url("../fonts/dogicapixel.ttf") format("truetype");
+}
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "PixelFont", monospace;
+    letter-spacing: 1px;
+    background-color: rgb(0, 0, 0);
+}
+
+p {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 8px;
+}
+
+
+/* Standardfarbe für einen nicht besuchten Link */
+a:link {
+    color: rgb(172, 252, 255);
+}
+
+/* Farbe für einen bereits besuchten Link */
+a:visited {
+    color: rgb(255, 0, 0);
+}
+
+/* Farbe, wenn der Link mit der Maus berührt wird */
+a:hover {
+    color: rgb(255, 250, 186);
+}
+
+/* Farbe, wenn der Link gerade angeklickt wird */
+a:active {
+    color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-logo {
+    width: 128px; /* Verdoppelte Größe (2x Scale) */
+    height: 128px;
+    image-rendering: pixelated; /* Pixel-Rendering aktivieren */
+    image-rendering: crisp-edges; /* Alternativer Fallback */
+    display: block;
+    margin: 0 auto; /* Zentriert das Bild innerhalb des Containers */
+}
+
+.footer {
+    background-color: #312929;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: "PixelFont", monospace;
+    border-top: 2px solid #b89b9b;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center; /* Zentriert die drei Spalten */
+    flex-wrap: wrap; /* Umbrechen auf kleine Bildschirme */
+    gap: 20px;
+    padding: 10px;
+}
+
+.footer-column {
+    flex: 1 1 calc(33.33% - 20px); /* Spalten gleichmäßig verteilen */
+    max-width: 300px; /* Maximale Breite */
+    text-align: left;
+}
+
+.footer-column h3 {
+    color: #a2ffff;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-column ul {
+    list-style: none; /* Entfernt Bullet Points */
+    padding: 0;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #b89b9b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #a2ffff; /* Hover-Farbe */
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #b89b9b;
+}
+
+.footer-links {
+    margin-top: 5px; /* Abstand zum Copyright-Text */
+}
+
+.footer-links a {
+    color: #b89b9b;
+    text-decoration: none;
+    margin: 0 10px; /* Abstand zwischen den Links */
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a2ffff; /* Farbe beim Hover */
+}
+
+
+
+/* P A R A L L A X */
+
+.parallax-container {
+    position: relative;
+    width: 100vw;
+    height: 720px;
+    overflow: hidden;
+    image-rendering: pixelated;
+    transform-origin: center;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 500%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    transform-origin: center;
+    transition: transform 0.5s ease-out; /* Animation für weichen Übergang */
+
+}
+
+/* S O C I A L   M E D I A   I C O N S */
+
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Deaktiviert Interaktionen für das Overlay */
+}
+
+.social-media-container {
+    position: relative;
+    z-index: 9999; /* Sehr hoher Wert */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 20px;
+    pointer-events: auto; /* Aktiviert Interaktionen für die Icons */
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+
+.social-icon:hover {
+    filter: brightness(1.2);
+}
+
+/* artists social icons */
+.social-artist-media-container {
+    position: relative;
+    z-index: 9999; /* Sehr hoher Wert */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    pointer-events: auto; /* Aktiviert Interaktionen für die Icons */
+    flex-wrap: wrap; /* Ermöglicht das Umfließen der Icons */
+}
+
+.social-artist-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.social-artist-icon:hover {
+    filter: brightness(1.2);
+}
+
+
+/* L O G O */
+
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 512px;
+    pointer-events: auto;
+
+    transition: filter 1.9s ease;
+}
+
+.logo:hover {
+    filter: invert(100%);
+    transition: filter 1.9s ease;
+    /* Sanfte Übergangsanimation */
+}
+
+/* B U T T O N */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    pointer-events: visible;
+    image-rendering: pixelated;
+    align-items: center;
+}
+
+@media (max-width: 1150px) {
+
+    /* Wenn die Bildschirmbreite kleiner als 768px ist */
+    .button-container {
+        flex-direction: column;
+        /* Buttons untereinander anordnen */
+        gap: 30px;
+        /* Weniger Abstand zwischen den Buttons */
+    }
+
+    .social-media-container {
+        justify-content: center;
+        margin-right: 0;
+    }
+    
+    .footer {
+        font-size: 12px; /* Kleinere Schrift für Mobilgeräte */
+        padding: 8px 0; /* Weniger Abstand */
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+    /* MAIN MENU BUTTON */
+.button {
+    width: 128px;
+    height: 32px;
+    background: url('../img/button/buttons.png') no-repeat;
+    display: inline-block;
+    cursor: pointer;
+    transform: scale(2);
+    /* Verdoppelt die Größe */
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+.button.dashboard {
+    background-position: 0 0;
+}
+
+.button.dashboard:hover {
+    background-position: -128px 0;
+}
+
+.button.dashboard:active {
+    background-position: -256px 0;
+}
+
+.button.contact {
+    background-position: 0 -32px;
+}
+
+.button.contact:hover {
+    background-position: -128px -32px;
+}
+
+.button.contact:active {
+    background-position: -256px -32px;
+}
+
+.button.shop {
+    background-position: 0 -64px;
+}
+
+.button.shop:hover {
+    background-position: -128px -64px;
+}
+
+.button.shop:active {
+    background-position: -256px -64px;
+}
+
+.button.blog {
+    background-position: 0 -96px;
+}
+
+.button.blog:hover {
+    background-position: -128px -96px;
+}
+
+.button.blog:active {
+    background-position: -256px -96px;
+}
+
+.popup-container {
+    padding-top: 32px;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    
+    /* Flexbox aktivieren */
+    flex-wrap: wrap;
+    /* Container umbrechen, wenn Platz fehlt */
+    justify-content: center;
+    /* Zentriere die Inhalte */
+    gap: 20px;
+    /* Abstand zwischen den inneren Containern */
+
+}
+
+
+/* Hauptcontainer */
+.content-container {
+    padding-top: 32px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+
+    display: flex;
+    /* Flexbox aktivieren */
+    flex-wrap: wrap;
+    /* Container umbrechen, wenn Platz fehlt */
+    justify-content: center;
+    /* Zentriere die Inhalte */
+    gap: 20px;
+    /* Abstand zwischen den inneren Containern */
+}
+
+.inner-container {
+    background-color: #312929;
+    border: 2px solid #b89b9b;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    min-width: 344px;
+    max-width: 344px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 8px;
+
+    box-shadow:
+        0 2px 0 #513131,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 4px 0 #a03636,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 8px 0 #7d2a2a,
+        /* Hauptschatten nach unten */
+        0 10px 0 #a03636;
+    /* Zusätzlicher 1-Pixel-Schatten */
+}
+
+/* Cover Image - Standardmäßig verwischt */
+.inner-container img {
+    width: 100%;
+    /* Bild füllt den Container */
+    height: auto;
+    /* Beibehaltung des Seitenverhältnisses */
+    border-radius: 5px 5px 0 0;
+    /* Optionale abgerundete Ecken oben */
+    margin-bottom: 10px;
+    /* Abstand zwischen Bild und Text */
+    image-rendering: pixelated;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 20% 100%, 0 80%);
+
+    /* Standardmäßiger Verwischungseffekt */
+    filter: grayscale(50%);
+    transition: filter 0.3s ease;
+    /* Sanfte Übergangsanimation */
+}
+
+/* Bei Hover klarstellen */
+.inner-container img:hover {
+    filter: saturate(100%);
+    transition: filter 0.3s ease;
+    /* Sanfte Übergangsanimation */
+}
+
+.inner-container-button {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-family: PixelFont;
+    /* Verwenden Sie Arial als Schriftart mit einer Fallback-Schriftart */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    background-color: #b89b9b;
+    box-shadow: 0 6px #000000;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.inner-container-button:hover {
+    background-color: #a2ffff;
+    /* Ändern Sie die Hintergrundfarbe bei Hover */
+}
+
+.inner-container-button:active {
+    background-color: #c4fff7;
+    /* Ändern Sie die Hintergrundfarbe beim Klicken */
+    box-shadow: 0 3px #0a0a0a;
+    /* Ändern Sie den Schatten beim Klicken */
+    transform: translateY(4px);
+    /* Verschieben Sie den Button nach unten beim Klicken */
+}
+
+/* about */
+.inner-container2 {
+    background-color: #312929;
+    border: 2px solid #b89b9b;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 50px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 800px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 8px;
+
+    box-shadow:
+        0 2px 0 #513131,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 4px 0 #a03636,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 8px 0 #7d2a2a,
+        /* Hauptschatten nach unten */
+        0 10px 0 #a03636;
+    /* Zusätzlicher 1-Pixel-Schatten */
+}
+
+.inner-container2 img {
+    width: 100%;
+    /* Bild füllt den Container */
+    height: auto;
+    /* Beibehaltung des Seitenverhältnisses */
+    margin-bottom: 10px;
+    /* Abstand zwischen Bild und Text */
+    image-rendering: pixelated;
+}
+
+.inner-container-blog {
+    background-color: #312929;
+    border: 2px solid #b89b9b;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 50px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 1078px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 8px;
+
+    box-shadow:
+        0 2px 0 #513131,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 4px 0 #a03636,
+        /* Zusätzlicher 1-Pixel-Schatten */
+        0 8px 0 #7d2a2a,
+        /* Hauptschatten nach unten */
+        0 10px 0 #a03636;
+    /* Zusätzlicher 1-Pixel-Schatten */
+}
+
+.inner-container-blog img {
+    width: 100%;
+    /* Bild füllt den Container */
+    height: auto;
+    /* Beibehaltung des Seitenverhältnisses */
+    margin-bottom: 10px;
+    /* Abstand zwischen Bild und Text */
+    image-rendering: pixelated;
+}
+
+
+
