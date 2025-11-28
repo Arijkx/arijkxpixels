@@ -26,22 +26,18 @@ h4 {
     font-size: 8px;
 }
 
-/* Standardfarbe für einen nicht besuchten Link */
 a:link {
     color: rgb(172, 252, 255);
 }
 
-/* Farbe für einen bereits besuchten Link */
 a:visited {
     color: rgb(255, 0, 0);
 }
 
-/* Farbe, wenn der Link mit der Maus berührt wird */
 a:hover {
     color: rgb(255, 250, 186);
 }
 
-/* Farbe, wenn der Link gerade angeklickt wird */
 a:active {
     color: orange;
 }
@@ -67,7 +63,6 @@ a:active {
     background-size: auto 100%;
     transform-origin: center;
     transition: transform 0.5s ease-out;
-    /* Animation für weichen Übergang */
 
 }
 
@@ -80,7 +75,6 @@ a:active {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    /* Deaktiviert Interaktionen für das Overlay */
 }
 
 .social-media-container {
@@ -94,7 +88,6 @@ a:active {
     margin-right: 30px;
     margin-top: 20px;
     pointer-events: auto;
-    /* Aktiviert Interaktionen für die Icons */
 }
 
 .social-icon {
@@ -109,20 +102,16 @@ a:active {
     filter: brightness(1.2);
 }
 
-/* artists social icons */
 .social-artist-media-container {
     position: relative;
     z-index: 9999;
-    /* Sehr hoher Wert */
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
     pointer-events: auto;
-    /* Aktiviert Interaktionen für die Icons */
     flex-wrap: wrap;
-    /* Ermöglicht das Umfließen der Icons */
 }
 
 .social-artist-icon {
@@ -159,12 +148,9 @@ a:active {
 
 @media (max-width: 1150px) {
 
-    /* Wenn die Bildschirmbreite kleiner als 768px ist */
     .button-container {
         flex-direction: column;
-        /* Buttons untereinander anordnen */
         gap: 30px;
-        /* Weniger Abstand zwischen den Buttons */
     }
 
     .social-media-container {
@@ -174,9 +160,7 @@ a:active {
 
     .footer {
         font-size: 12px;
-        /* Kleinere Schrift für Mobilgeräte */
         padding: 8px 0;
-        /* Weniger Abstand */
     }
 
     .footer-container {
@@ -198,7 +182,6 @@ a:active {
     display: inline-block;
     cursor: pointer;
     transform: scale(2);
-    /* Verdoppelt die Größe */
     margin-left: 75px;
     margin-right: 75px;
 }
@@ -260,18 +243,12 @@ a:active {
     color: #ffffff;
     text-align: center;
     display: flex;
-
-    /* Flexbox aktivieren */
     flex-wrap: wrap;
-    /* Container umbrechen, wenn Platz fehlt */
     justify-content: center;
-    /* Zentriere die Inhalte */
     gap: 20px;
-    /* Abstand zwischen den inneren Containern */
 
 }
 
-/* Hauptcontainer */
 .content-container {
     padding-top: 32px;
     padding-left: 10%;
@@ -283,13 +260,9 @@ a:active {
     text-align: center;
 
     display: flex;
-    /* Flexbox aktivieren */
     flex-wrap: wrap;
-    /* Container umbrechen, wenn Platz fehlt */
     justify-content: center;
-    /* Zentriere die Inhalte */
     gap: 20px;
-    /* Abstand zwischen den inneren Containern */
 }
 
 .inner-container {
@@ -381,11 +354,8 @@ a:active {
 
 .inner-container2 img {
     width: 100%;
-    /* Bild füllt den Container */
     height: auto;
-    /* Beibehaltung des Seitenverhältnisses */
     margin-bottom: 10px;
-    /* Abstand zwischen Bild und Text */
     image-rendering: pixelated;
 }
 
@@ -404,23 +374,16 @@ a:active {
     margin-bottom: 8px;
 
     box-shadow:
-        0 2px 0 #513131,
-        /* Zusätzlicher 1-Pixel-Schatten */
-        0 4px 0 #a03636,
-        /* Zusätzlicher 1-Pixel-Schatten */
-        0 8px 0 #7d2a2a,
-        /* Hauptschatten nach unten */
-        0 10px 0 #a03636;
-    /* Zusätzlicher 1-Pixel-Schatten */
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f;
 }
 
 .inner-container-blog img {
     width: 100%;
-    /* Bild füllt den Container */
     height: auto;
-    /* Beibehaltung des Seitenverhältnisses */
     margin-bottom: 10px;
-    /* Abstand zwischen Bild und Text */
     image-rendering: pixelated;
 }
 
@@ -430,15 +393,11 @@ a:active {
 
 .footer-logo {
     width: 128px;
-    /* Verdoppelte Größe (2x Scale) */
     height: 128px;
     image-rendering: pixelated;
-    /* Pixel-Rendering aktivieren */
     image-rendering: crisp-edges;
-    /* Alternativer Fallback */
     display: block;
     margin: 0 auto;
-    /* Zentriert das Bild innerhalb des Containers */
 }
 
 .footer {
