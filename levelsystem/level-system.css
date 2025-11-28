@@ -8,7 +8,7 @@
     z-index: 10000;
     pointer-events: auto;
     background-color: #0d001a;
-    border-bottom: 2px solid #befeff;
+    border-bottom: 1px solid #befeff;
     padding: 8px 20px;
     display: flex;
     align-items: center;
@@ -16,8 +16,9 @@
     box-shadow:
     0 2px 0 #2c3a3b,
     0 4px 0 #809e9f,
-    0 6px 0 #598283,
-    0 8px 0 #809e9f;
+    0 8px 0 #598283,
+    0 10px 0 #809e9f,
+    0px 10px 8px #00000077;
 }
 
 .level-info {
@@ -45,7 +46,7 @@
     border-radius: 3px;
     overflow: hidden;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-    min-width: 200px;
+    min-width: 100px;
 }
 
 .xp-progress-fill {
