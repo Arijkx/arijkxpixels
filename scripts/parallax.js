@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Parallax-Effekt initialisieren (wird von load-header.js aufgerufen, oder als Fallback)
+function initParallax() {
     const parallaxContainer = document.querySelector(".parallax-container");
     const layers = document.querySelectorAll(".parallax-layer");
 
     if (!parallaxContainer || layers.length === 0) {
-        console.error("Parallax-Container oder -Layer wurden nicht gefunden!");
+        console.warn("Parallax-Container oder -Layer wurden nicht gefunden!");
         return;
     }
 
@@ -26,4 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
             layer.style.transform = "translateX(0px)";
         });
     });
+}
+
+// Fallback: Initialisierung beim DOMContentLoaded, falls Header nicht dynamisch geladen wird
+document.addEventListener("DOMContentLoaded", () => {
+    // Warte kurz, damit load-header.js zuerst versuchen kann
+    setTimeout(() => {
+        const headerPlaceholder = document.getElementById("header-placeholder");
+        // Nur initialisieren, wenn kein Header-Platzhalter vorhanden ist (alte Seiten ohne Header-Komponente)
+        if (!headerPlaceholder) {
+            initParallax();
+        }
+    }, 100);
 });
