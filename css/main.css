@@ -466,3 +466,103 @@ a:active {
 .footer-links a:hover {
     color: #a2ffff;
 }
+
+/* D I S C L A I M E R */
+
+.disclaimer {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    z-index: 10001;
+    pointer-events: auto;
+    transform: translateX(-120%);
+    transition: transform 0.5s ease-out;
+}
+
+.disclaimer.show {
+    transform: translateX(0);
+}
+
+.disclaimer.hidden {
+    display: none;
+}
+
+.disclaimer-content {
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 350px;
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f,
+        0px 10px 8px #00000077;
+    position: relative;
+}
+
+.disclaimer-content h3 {
+    color: #befeff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.disclaimer-content p {
+    color: #ffffff;
+    font-size: 8px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.disclaimer-content p:last-child {
+    margin-bottom: 0;
+}
+
+.disclaimer-content strong {
+    color: #befeff;
+}
+
+.disclaimer-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 2px solid #befeff;
+    color: #befeff;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "PixelFont", monospace;
+    line-height: 1;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.disclaimer-close:hover {
+    background-color: #befeff;
+    color: #1b2127;
+}
+
+.disclaimer-close:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .disclaimer {
+        top: 50px;
+        left: 10px;
+        right: 10px;
+        max-width: calc(100% - 20px);
+    }
+    
+    .disclaimer-content {
+        max-width: 100%;
+    }
+}

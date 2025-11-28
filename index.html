@@ -11,6 +11,7 @@
     <script src="scripts/load-header.js"></script>
     <script src="scripts/load-footer.js"></script>
     <script src="levelsystem/level-system.js"></script>
+    <script src="scripts/disclaimer.js"></script>
     <link rel="icon" sizes="16x16" type="image/png" href="img/logo/logo16.png">
     <link rel="icon" sizes="32x32" type="image/png" href="img/logo/logo32.png">
 </head>
@@ -20,6 +21,17 @@
     <!-- Header wird dynamisch geladen -->
     <div id="header-placeholder"></div>
     
+    <!-- Disclaimer für erstes Besuch -->
+    <div id="disclaimer" class="disclaimer hidden">
+        <div class="disclaimer-content">
+            <button class="disclaimer-close" id="disclaimer-close">×</button>
+            <h3>Level System Info</h3>
+            <p>This level system is just for fun!</p>
+            <p>You automatically receive +10 XP per second while browsing. The more time you spend on the website, the more you level up!</p>
+            <p>Data is stored in Local Storage and will be automatically reset when the browser cache is deleted.</p>
+            <p>Have fun leveling up!</p>
+        </div>
+    </div>
 
     <!-- Neuer Content-Container -->
     <div class="content-container">
