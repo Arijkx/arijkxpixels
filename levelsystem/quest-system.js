@@ -200,7 +200,7 @@ class QuestSystem {
     }
 
     // Mark quest as completed
-    completeQuest(questId) {
+    completeQuest(questId, delayNotification = false) {
         const quest = this.quests.find(q => q.id === questId);
         if (quest && !quest.completed) {
             quest.completed = true;
@@ -215,7 +215,15 @@ class QuestSystem {
             this.updateUI();
             
             // Quest-Complete Animation
-            this.showQuestCompleteNotification(quest);
+            if (delayNotification) {
+                // Store quest info for notification on next page
+                sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
+                    title: quest.title,
+                    xpReward: quest.xpReward
+                }));
+            } else {
+                this.showQuestCompleteNotification(quest);
+            }
             
             // Check dependent quests
             this.checkDependentQuests();
@@ -258,29 +266,68 @@ class QuestSystem {
 
     // Show Quest-Complete Notification
     showQuestCompleteNotification(quest) {
-        const notification = document.createElement('div');
-        notification.className = 'quest-notification';
-        notification.innerHTML = `
-            <div class="quest-notification-content">
-                <h3>Quest Completed!</h3>
-                <p>${quest.title}</p>
-                <p class="quest-xp-reward">+${quest.xpReward} XP</p>
-            </div>
-        `;
-        document.body.appendChild(notification);
+        // Check if tab is visible/active
+        if (document.hidden) {
+            // Tab is in background, store notification and show when tab becomes visible
+            sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
+                title: quest.title,
+                xpReward: quest.xpReward
+            }));
+            return;
+        }
         
-        // Animation
+        // Delay to ensure page transition is complete
         setTimeout(() => {
-            notification.classList.add('show');
-        }, 10);
-        
-        // Remove after 3 seconds
-        setTimeout(() => {
-            notification.classList.remove('show');
+            // Check if document.body exists (page is loaded)
+            if (!document.body) {
+                // If body doesn't exist yet, wait a bit more
+                setTimeout(() => this.showQuestCompleteNotification(quest), 100);
+                return;
+            }
+            
+            // Double-check tab is still visible
+            if (document.hidden) {
+                // Tab became hidden, store for later
+                sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
+                    title: quest.title,
+                    xpReward: quest.xpReward
+                }));
+                return;
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'quest-notification';
+            notification.innerHTML = `
+                <div class="quest-notification-content">
+                    <h3>Quest Completed!</h3>
+                    <p>${quest.title}</p>
+                    <p class="quest-xp-reward">+${quest.xpReward} XP</p>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            // Animation
             setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 500);
-        }, 3000);
+                if (!document.hidden && notification.parentNode) {
+                    notification.classList.add('show');
+                }
+            }, 10);
+            
+            // Remove after 3 seconds (only if tab is still visible)
+            setTimeout(() => {
+                if (!document.hidden && notification.parentNode) {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 500);
+                } else if (notification.parentNode) {
+                    // Tab was hidden, remove immediately
+                    document.body.removeChild(notification);
+                }
+            }, 3000);
+        }, 300); // 300ms delay to ensure page transition is complete
     }
 
     // Update UI
@@ -336,6 +383,17 @@ class QuestSystem {
 
     // Initialization
     init() {
+        // Check for pending quest notification from previous page
+        this.checkPendingNotification();
+        
+        // Listen for tab visibility changes to show pending notifications
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                // Tab became visible, check for pending notifications
+                this.checkPendingNotification();
+            }
+        });
+        
         // Wait until Level System is loaded
         const checkLevelSystem = setInterval(() => {
             if (levelSystem) {
@@ -373,6 +431,35 @@ class QuestSystem {
                 clearInterval(checkHeader);
             }
         }, 200);
+    }
+    
+    // Check for pending quest notification from previous page or when tab becomes visible
+    checkPendingNotification() {
+        // Only check if tab is visible
+        if (document.hidden) {
+            return;
+        }
+        
+        const pending = sessionStorage.getItem('pendingQuestNotification');
+        if (pending) {
+            try {
+                const questInfo = JSON.parse(pending);
+                sessionStorage.removeItem('pendingQuestNotification');
+                
+                // Show notification after a short delay to ensure page is ready
+                setTimeout(() => {
+                    // Double-check tab is still visible before showing
+                    if (!document.hidden) {
+                        this.showQuestCompleteNotification(questInfo);
+                    } else {
+                        // Tab became hidden again, restore to storage
+                        sessionStorage.setItem('pendingQuestNotification', JSON.stringify(questInfo));
+                    }
+                }, 300);
+            } catch (e) {
+                console.error('Error parsing pending quest notification:', e);
+            }
+        }
     }
 
     // Check page visits
@@ -473,52 +560,53 @@ class QuestSystem {
         });
         
         // Internal page links (for immediate quest completion on click)
+        // Use delayNotification=true so notification shows on the new page
         const aboutLinks = document.querySelectorAll('a[href*="about.html"]');
         aboutLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_about');
+                this.completeQuest('explore_about', true);
             });
         });
         
         const artistsLinks = document.querySelectorAll('a[href*="artists.html"]');
         artistsLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_artists');
+                this.completeQuest('explore_artists', true);
             });
         });
         
         const assetsLinks = document.querySelectorAll('a[href*="assets.html"]');
         assetsLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_assets');
+                this.completeQuest('explore_assets', true);
             });
         });
         
         const developmentLinks = document.querySelectorAll('a[href*="development.html"]');
         developmentLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_development');
+                this.completeQuest('explore_development', true);
             });
         });
         
         const shopLinks = document.querySelectorAll('a[href*="shop.html"]');
         shopLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_shop');
+                this.completeQuest('explore_shop', true);
             });
         });
         
         const toolsLinks = document.querySelectorAll('a[href*="tools.html"]');
         toolsLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('explore_tools');
+                this.completeQuest('explore_tools', true);
             });
         });
         
         const partnerLinks = document.querySelectorAll('a[href*="partner.html"]');
         partnerLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.completeQuest('check_trusted_partners');
+                this.completeQuest('check_trusted_partners', true);
             });
         });
         
