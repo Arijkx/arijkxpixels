@@ -7,48 +7,39 @@
     <title>Arijkx | Pixels</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="levelsystem/level-system.css">
+    <link rel="stylesheet" href="levelsystem/quest-system.css">
     <script src="scripts/parallax.js"></script>
     <script src="scripts/load-header.js"></script>
     <script src="scripts/load-footer.js"></script>
     <script src="scripts/load-scroll-to-top.js"></script>
     <script src="levelsystem/level-system.js"></script>
+    <script src="levelsystem/quest-system.js"></script>
     <link rel="icon" sizes="16x16" type="image/png" href="img/logo/logo16.png">
     <link rel="icon" sizes="32x32" type="image/png" href="img/logo/logo32.png">
 </head>
 
 <body>
-
-    <!-- Header wird dynamisch geladen -->
     <div id="header-placeholder"></div>
     
-
-    <!-- Neuer Content-Container -->
     <div class="content-container">
-
-        <div class="inner-container">
-            <img src="post/comingsoon.png" alt="Cover Image">
-            <h1>Choppers Journey</h1>
-            <p>Action Rouge Like</p>
-            <p>July/2026</p>
-            <!-- Button mit Link -->
-
-                <button class="inner-container-button">coming soon</button>
-            </a>
+        <div id="quest-list" class="quest-list-grid">
+            <div class="inner-container quest-header-container">
+                <h1>WEBSITE QUESTS</h1>
+                <p class="size1">Complete quests to earn XP and unlock achievements as you explore the website. Discover new content and level up your pixel art journey!</p>
+                <div id="quest-stats" class="quest-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Completed:</span>
+                        <span class="stat-value">0/0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">XP earned:</span>
+                        <span class="stat-value">0 XP</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Quests werden hier dynamisch eingefügt -->
         </div>
-
-        <div class="inner-container">
-            <img src="post/comingsoon.png" alt="Cover Image">
-            <h1>Space Simulation</h1>
-            <p>Space Wars Simulator</p>
-            <p>July/2026</p>
-            <!-- Button mit Link -->
-
-                <button class="inner-container-button">coming soon</button>
-            </a>
-        </div>
-
     </div>
-
 
     <div class="content-container">
         <div class="inner-container">
@@ -58,9 +49,6 @@
         </div>
     </div>
 
-
-
-    <!-- Footer wird dynamisch geladen -->
     <div id="footer-placeholder"></div>
     
     <div id="scroll-to-top-placeholder"></div>
