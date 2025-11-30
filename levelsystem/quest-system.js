@@ -196,6 +196,30 @@ class QuestSystem {
                 xpReward: 1000,
                 goldReward: 100,
                 completed: false
+            },
+            {
+                id: 'explore_contact',
+                title: 'Visit Contact',
+                description: 'Get in touch! Visit the Contact page to find ways to connect with the artist, join the community, or reach out for collaborations and commissions.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_rewards',
+                title: 'Check Rewards',
+                description: 'Unlock exclusive content! Visit the Rewards page to see available wallpapers and unlockable content that you can purchase with your earned Gold.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_quests',
+                title: 'View Quests',
+                description: 'Track your progress! Visit the Quests page to see all available achievements, track your completion status, and discover new challenges to complete.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
             }
         ];
         
@@ -567,7 +591,9 @@ class QuestSystem {
             'development.html': 'explore_development',
             'shop.html': 'explore_shop',
             'tools.html': 'explore_tools',
-            'contact.html': null, // Handled by link clicks
+            'contact.html': 'explore_contact',
+            'rewards.html': 'explore_rewards',
+            'quests.html': 'explore_quests',
             'partner.html': 'check_trusted_partners'
         };
         
@@ -693,6 +719,27 @@ class QuestSystem {
         partnerLinks.forEach(link => {
             link.addEventListener('click', () => {
                 this.completeQuest('check_trusted_partners', true);
+            });
+        });
+
+        const contactLinks = document.querySelectorAll('a[href*="contact.html"]');
+        contactLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('explore_contact', true);
+            });
+        });
+
+        const rewardsLinks = document.querySelectorAll('a[href*="rewards.html"]');
+        rewardsLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('explore_rewards', true);
+            });
+        });
+
+        const questsLinks = document.querySelectorAll('a[href*="quests.html"]');
+        questsLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('explore_quests', true);
             });
         });
         

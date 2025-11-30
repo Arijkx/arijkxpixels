@@ -161,6 +161,12 @@ class LevelSystem {
 
     // Initialisierung
     init() {
+        // Check if reset was in progress - if so, ensure data is cleared
+        if (sessionStorage.getItem('resetInProgress') === 'true') {
+            localStorage.removeItem('levelSystem');
+            sessionStorage.removeItem('resetInProgress');
+        }
+
         // Warte bis Header geladen ist
         const checkHeader = setInterval(() => {
             const levelValueEl = document.getElementById('level-value');
@@ -171,13 +177,19 @@ class LevelSystem {
                 
                 // Speichere beim Verlassen der Seite
                 window.addEventListener('beforeunload', () => {
-                    this.stopXPTimer();
+                    // Don't save if reset is in progress
+                    if (sessionStorage.getItem('resetInProgress') !== 'true') {
+                        this.stopXPTimer();
+                    }
                 });
                 
                 // Speichere auch bei Tab-Wechsel (optional)
                 document.addEventListener('visibilitychange', () => {
                     if (document.hidden) {
-                        this.stopXPTimer();
+                        // Don't save if reset is in progress
+                        if (sessionStorage.getItem('resetInProgress') !== 'true') {
+                            this.stopXPTimer();
+                        }
                     } else {
                         this.startXPTimer();
                     }

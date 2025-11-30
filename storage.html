@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arijkx | Pixels</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="levelsystem/level-system.css">
+    <link rel="stylesheet" href="levelsystem/quest-system.css">
+    <script src="scripts/parallax.js"></script>
+    <script src="scripts/load-header.js"></script>
+    <script src="scripts/load-footer.js"></script>
+    <script src="scripts/load-scroll-to-top.js"></script>
+    <script src="levelsystem/level-system.js"></script>
+    <script src="levelsystem/quest-system.js"></script>
+    <script src="scripts/storage-reset.js"></script>
+    <link rel="icon" sizes="16x16" type="image/png" href="img/logo/logo16.png">
+    <link rel="icon" sizes="32x32" type="image/png" href="img/logo/logo32.png">
+</head>
+
+<body>
+
+    <!-- Header wird dynamisch geladen -->
+    <div id="header-placeholder"></div>
+    
+
+    <!-- Neuer Content-Container -->
+    <div class="content-container">
+       
+        <div class="inner-container2">
+            <h1>Storage Backup & Reset</h1>
+            <p><strong>Manage your Local Storage data from Arijkx | Pixels</strong></p>
+            
+            <div style="margin: 20px 0; line-height: 1.8;">
+                <h3 style="color: #befeff; margin-top: 20px; margin-bottom: 10px;">Download Backup</h3>
+                <p style="text-align: left; margin-bottom: 15px;">
+                    Creates a backup file containing all your saved data: your current Level, XP, Gold, completed Quests, and all unlocked Rewards. 
+                    The backup is saved as a JSON file on your computer. You can use this backup later to restore your progress if needed.
+                </p>
+                
+                <h3 style="color: #befeff; margin-top: 20px; margin-bottom: 10px;">Upload & Restore Backup</h3>
+                <p style="text-align: left; margin-bottom: 15px;">
+                    Restores your saved data from a previously downloaded backup file. This will overwrite all your current data with the data from the backup file. 
+                    Your current Level, XP, Gold, Quest progress, and unlocked Rewards will be replaced with the values from the backup.
+                </p>
+                
+                <h3 style="color: #ff6b6b; margin-top: 20px; margin-bottom: 10px;">Reset All Data</h3>
+                <p style="text-align: left; margin-bottom: 15px;">
+                    <strong style="color: #ff6b6b;">WARNING: This action cannot be undone!</strong> This will permanently delete ALL your saved data:
+                </p>
+                <ul style="text-align: left; margin-left: 20px; margin-bottom: 15px;">
+                    <li>Your Level and all accumulated XP</li>
+                    <li>All your Gold</li>
+                    <li>All Quest progress (all quests will be reset to uncompleted)</li>
+                    <li>All unlocked Rewards (you will need to unlock them again with Gold)</li>
+                    <li>First visit flag</li>
+                </ul>
+                <p style="text-align: left; margin-bottom: 15px;">
+                    After resetting, you will start completely fresh. Make sure to download a backup before resetting if you want to keep your progress!
+                </p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; margin: 30px 0;">
+                <button id="download-backup-button" class="inner-container-button" style="width: 100%; margin: 0;">
+                    Download Backup
+                </button>
+                
+                <button id="upload-backup-button" class="inner-container-button" style="width: 100%; margin: 0;">
+                    Upload & Restore Backup
+                </button>
+                
+                <button id="reset-storage-button" class="inner-container-button" style="width: 100%; margin: 0;">
+                    Reset All Data
+                </button>
+            </div>
+
+            <a href="index.html" target="_self">
+                <button class="inner-container-button">
+                    go back
+                </button>
+            </a>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+    <!-- Footer wird dynamisch geladen -->
+    <div id="footer-placeholder"></div>
+    
+    <div id="scroll-to-top-placeholder"></div>
+</body>
+
+</html>
