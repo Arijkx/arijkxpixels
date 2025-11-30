@@ -1,7 +1,7 @@
-// Wallpaper Shop System
-class WallpaperShop {
+// Unlock Rewards System
+class UnlockRewards {
     constructor() {
-        this.wallpapers = [
+        this.rewards = [
             {
                 id: 'fallen_kingdom_standard',
                 title: 'Fallen Kingdom Standard',
@@ -58,27 +58,27 @@ class WallpaperShop {
             }
         ];
         
-        this.purchasedWallpapers = this.loadPurchasedWallpapers();
+        this.purchasedRewards = this.loadPurchasedRewards();
     }
     
-    loadPurchasedWallpapers() {
-        const saved = localStorage.getItem('purchasedWallpapers');
+    loadPurchasedRewards() {
+        const saved = localStorage.getItem('purchasedRewards');
         return saved ? JSON.parse(saved) : [];
     }
     
-    savePurchasedWallpapers() {
-        localStorage.setItem('purchasedWallpapers', JSON.stringify(this.purchasedWallpapers));
+    savePurchasedRewards() {
+        localStorage.setItem('purchasedRewards', JSON.stringify(this.purchasedRewards));
     }
     
-    isPurchased(wallpaperId) {
-        return this.purchasedWallpapers.includes(wallpaperId);
+    isPurchased(rewardId) {
+        return this.purchasedRewards.includes(rewardId);
     }
     
-    purchaseWallpaper(wallpaperId) {
-        const wallpaper = this.wallpapers.find(w => w.id === wallpaperId);
-        if (!wallpaper) return false;
+    purchaseReward(rewardId) {
+        const reward = this.rewards.find(r => r.id === rewardId);
+        if (!reward) return false;
         
-        if (this.isPurchased(wallpaperId)) {
+        if (this.isPurchased(rewardId)) {
             return true; // Already purchased
         }
         
@@ -87,36 +87,36 @@ class WallpaperShop {
             return false;
         }
         
-        if (levelSystem.gold < wallpaper.price) {
-            this.showNotEnoughGoldPopup(wallpaper.price, levelSystem.gold);
+        if (levelSystem.gold < reward.price) {
+            this.showNotEnoughGoldPopup(reward.price, levelSystem.gold);
             return false;
         }
         
         // Deduct gold
-        levelSystem.gold -= wallpaper.price;
+        levelSystem.gold -= reward.price;
         levelSystem.saveToStorage();
         levelSystem.updateUI();
         
         // Add to purchased list
-        this.purchasedWallpapers.push(wallpaperId);
-        this.savePurchasedWallpapers();
+        this.purchasedRewards.push(rewardId);
+        this.savePurchasedRewards();
         
         return true;
     }
     
-    downloadWallpaper(wallpaperId) {
-        const wallpaper = this.wallpapers.find(w => w.id === wallpaperId);
-        if (!wallpaper) return false;
+    downloadReward(rewardId) {
+        const reward = this.rewards.find(r => r.id === rewardId);
+        if (!reward) return false;
         
-        if (!this.isPurchased(wallpaperId)) {
-            alert('You need to purchase this wallpaper first!');
+        if (!this.isPurchased(rewardId)) {
+            alert('You need to unlock this reward first!');
             return false;
         }
         
         // Create download link
         const link = document.createElement('a');
-        link.href = wallpaper.file;
-        link.download = wallpaper.file.split('/').pop();
+        link.href = reward.file;
+        link.download = reward.file.split('/').pop();
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -130,11 +130,11 @@ class WallpaperShop {
         
         container.innerHTML = '';
         
-        this.wallpapers.forEach(wallpaper => {
+        this.rewards.forEach(reward => {
             const card = document.createElement('div');
             card.className = 'wallpaper-card';
             
-            const isPurchased = this.isPurchased(wallpaper.id);
+            const isPurchased = this.isPurchased(reward.id);
             
             if (isPurchased) {
                 card.classList.add('purchased');
@@ -142,20 +142,20 @@ class WallpaperShop {
             
             card.innerHTML = `
                 <div class="wallpaper-image-container">
-                    <div class="wallpaper-expand-icon" onclick="wallpaperShop.showPreview('${wallpaper.id}')" title="Click to expand">
+                    <div class="wallpaper-expand-icon" onclick="unlockRewards.showPreview('${reward.id}')" title="Click to expand">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
                         </svg>
                     </div>
-                    <img src="${wallpaper.image}" alt="${wallpaper.title}" class="wallpaper-image" onclick="wallpaperShop.showPreview('${wallpaper.id}')" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
+                    <img src="${reward.image}" alt="${reward.title}" class="wallpaper-image" onclick="unlockRewards.showPreview('${reward.id}')" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
                     ${isPurchased ? '<div class="purchased-badge">Purchased</div>' : ''}
                 </div>
                 <div class="wallpaper-info">
-                    <h3 class="wallpaper-title">${wallpaper.title}</h3>
-                    ${wallpaper.description ? `<p class="wallpaper-description">${wallpaper.description}</p>` : ''}
+                    <h3 class="wallpaper-title">${reward.title}</h3>
+                    ${reward.description ? `<p class="wallpaper-description">${reward.description}</p>` : ''}
                     <div class="wallpaper-meta">
                         <div class="wallpaper-tags">
-                            ${wallpaper.tags ? wallpaper.tags.map(tag => {
+                            ${reward.tags ? reward.tags.map(tag => {
                                 if (tag === 'PNG') {
                                     return `<div class="wallpaper-format">${tag}</div>`;
                                 } else {
@@ -165,12 +165,12 @@ class WallpaperShop {
                         </div>
                         <div class="wallpaper-price-container">
                             <div class="wallpaper-price-label">Price</div>
-                            <div class="wallpaper-price-badge">${wallpaper.price} Gold</div>
+                            <div class="wallpaper-price-badge">${reward.price} Gold</div>
                         </div>
                     </div>
                     ${isPurchased 
-                        ? `<button class="wallpaper-button download-button" onclick="wallpaperShop.downloadWallpaper('${wallpaper.id}')">Download</button>`
-                        : `<button class="wallpaper-button buy-button" onclick="wallpaperShop.buyWallpaper('${wallpaper.id}')">Unlock</button>`
+                        ? `<button class="wallpaper-button download-button" onclick="unlockRewards.downloadReward('${reward.id}')">Download</button>`
+                        : `<button class="wallpaper-button buy-button" onclick="unlockRewards.buyReward('${reward.id}')">Unlock</button>`
                     }
                 </div>
             `;
@@ -187,11 +187,11 @@ class WallpaperShop {
         });
     }
     
-    buyWallpaper(wallpaperId) {
-        if (this.purchaseWallpaper(wallpaperId)) {
+    buyReward(rewardId) {
+        if (this.purchaseReward(rewardId)) {
             this.updateUI();
             // Show success notification
-            this.showNotification(`Wallpaper purchased! You can now download it.`, 'success');
+            this.showNotification(`Reward unlocked! You can now download it.`, 'success');
         }
     }
     
@@ -228,7 +228,7 @@ class WallpaperShop {
             <div class="wallpaper-popup-content">
                 <h2 class="wallpaper-popup-title">Not Enough Gold!</h2>
                 <div class="wallpaper-popup-message">
-                    <p>You need <span class="gold-highlight">${requiredGold} Gold</span> to purchase this wallpaper.</p>
+                    <p>You need <span class="gold-highlight">${requiredGold} Gold</span> to unlock this reward.</p>
                     <p>You currently have <span class="gold-highlight">${currentGold} Gold</span>.</p>
                     <p class="wallpaper-popup-difference">You need <span class="gold-highlight">${requiredGold - currentGold} more Gold</span>.</p>
                 </div>
@@ -270,9 +270,9 @@ class WallpaperShop {
         }, 300);
     }
     
-    showPreview(wallpaperId) {
-        const wallpaper = this.wallpapers.find(w => w.id === wallpaperId);
-        if (!wallpaper) return;
+    showPreview(rewardId) {
+        const reward = this.rewards.find(r => r.id === rewardId);
+        if (!reward) return;
         
         // Create overlay
         const overlay = document.createElement('div');
@@ -284,11 +284,11 @@ class WallpaperShop {
         
         preview.innerHTML = `
             <div class="wallpaper-preview-content">
-                <button class="wallpaper-preview-close" onclick="wallpaperShop.closePreview(this.closest('.wallpaper-preview-overlay'))">×</button>
-                <img src="${wallpaper.image}" alt="${wallpaper.title}" class="wallpaper-preview-image" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
+                <button class="wallpaper-preview-close" onclick="unlockRewards.closePreview(this.closest('.wallpaper-preview-overlay'))">×</button>
+                <img src="${reward.image}" alt="${reward.title}" class="wallpaper-preview-image" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
                 <div class="wallpaper-preview-info">
-                    <h3 class="wallpaper-preview-title">${wallpaper.title}</h3>
-                    ${wallpaper.description ? `<p class="wallpaper-preview-description">${wallpaper.description}</p>` : ''}
+                    <h3 class="wallpaper-preview-title">${reward.title}</h3>
+                    ${reward.description ? `<p class="wallpaper-preview-description">${reward.description}</p>` : ''}
                 </div>
             </div>
         `;
@@ -354,9 +354,9 @@ class WallpaperShop {
 }
 
 // Initialize when DOM is ready
-let wallpaperShop;
+let unlockRewards;
 document.addEventListener('DOMContentLoaded', () => {
-    wallpaperShop = new WallpaperShop();
-    wallpaperShop.init();
+    unlockRewards = new UnlockRewards();
+    unlockRewards.init();
 });
 
