@@ -85,3 +85,39 @@
     text-align: right;
 }
 
+/* Mobile View - Abbreviated Labels */
+@media (max-width: 600px) {
+    .level-label {
+        font-size: 0;
+    }
+    
+    .level-label::before {
+        content: "lvl";
+        font-size: 8px;
+        color: #befeff;
+    }
+    
+    .gold-label {
+        font-size: 0;
+    }
+    
+    .gold-label::before {
+        content: "G";
+        font-size: 8px;
+        color: #befeff;
+    }
+
+    .gold-value {
+        font-size: 8px;
+        font-weight: normal;
+    }
+
+    .level-value {
+        font-size: 8px;
+    }
+
+    .xp-progress-bar {
+        min-width: 80px;
+    }
+}
+
