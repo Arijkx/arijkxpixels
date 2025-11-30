@@ -385,6 +385,150 @@ a:active {
     image-rendering: pixelated;
 }
 
+.inner-container-feed {
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 50px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 1080px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 8px;
+
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f;
+}
+
+.inner-container-feed img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    image-rendering: pixelated;
+}
+
+/* M A S T O D O N   F E E D */
+
+.mastodon-feed-container {
+    margin: 20px 0;
+    max-width: 100%;
+}
+
+.mastodon-loading,
+.mastodon-error {
+    text-align: center;
+    padding: 20px;
+    color: #809e9f;
+    font-size: 14px;
+}
+
+.mastodon-post {
+    background-color: #0d001a;
+    border: 1px solid #598283;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.mastodon-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #598283;
+}
+
+.mastodon-post-author {
+    color: #befeff;
+    font-size: 14px;
+}
+
+.mastodon-post-date {
+    color: #809e9f;
+    font-size: 12px;
+}
+
+.mastodon-post-content {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.mastodon-post-content p {
+    margin: 8px 0;
+}
+
+.mastodon-post-content a {
+    color: #befeff;
+    text-decoration: underline;
+}
+
+.mastodon-post-media {
+    margin: 15px 0;
+}
+
+.mastodon-post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 5px 0;
+    display: block;
+}
+
+.mastodon-post-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #598283;
+}
+
+.mastodon-post-link {
+    color: #befeff;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #befeff;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.mastodon-post-link:hover {
+    background-color: #befeff;
+    color: #0d001a;
+}
+
+.mastodon-embed-fallback {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.mastodon-embed {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .mastodon-post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .mastodon-embed {
+        min-height: 400px;
+    }
+}
+
 .inner-container-blog {
     background-color: #1b2127;
     border: 2px solid #befeff;
