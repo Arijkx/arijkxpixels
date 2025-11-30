@@ -142,6 +142,11 @@ class WallpaperShop {
             
             card.innerHTML = `
                 <div class="wallpaper-image-container">
+                    <div class="wallpaper-expand-icon" onclick="wallpaperShop.showPreview('${wallpaper.id}')" title="Click to expand">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </div>
                     <img src="${wallpaper.image}" alt="${wallpaper.title}" class="wallpaper-image" onclick="wallpaperShop.showPreview('${wallpaper.id}')" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
                     ${isPurchased ? '<div class="purchased-badge">Purchased</div>' : ''}
                 </div>
@@ -165,7 +170,7 @@ class WallpaperShop {
                     </div>
                     ${isPurchased 
                         ? `<button class="wallpaper-button download-button" onclick="wallpaperShop.downloadWallpaper('${wallpaper.id}')">Download</button>`
-                        : `<button class="wallpaper-button buy-button" onclick="wallpaperShop.buyWallpaper('${wallpaper.id}')">Buy</button>`
+                        : `<button class="wallpaper-button buy-button" onclick="wallpaperShop.buyWallpaper('${wallpaper.id}')">Unlock</button>`
                     }
                 </div>
             `;

@@ -79,6 +79,40 @@
     z-index: 10;
 }
 
+.wallpaper-expand-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(27, 33, 39, 0.8);
+    border: 2px solid #befeff;
+    border-radius: 3px;
+    color: #befeff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wallpaper-expand-icon:hover {
+    background-color: #befeff;
+    color: #0d001a;
+    transform: scale(1.1);
+}
+
+.wallpaper-expand-icon:active {
+    transform: scale(0.95);
+}
+
+.wallpaper-expand-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
 .wallpaper-info {
     display: flex;
     flex-direction: column;
