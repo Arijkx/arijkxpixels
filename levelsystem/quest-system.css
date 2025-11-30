@@ -40,6 +40,10 @@
     font-weight: bold;
 }
 
+#quest-gold-earned {
+    color: #ffd700;
+}
+
 .quest-list-grid {
     display: flex;
     flex-wrap: wrap;
@@ -101,6 +105,14 @@
     margin-bottom: 10px;
 }
 
+.quest-rewards {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .quest-title {
     font-size: 16px;
     color: #befeff;
@@ -122,10 +134,31 @@
     border: 1px solid #598283;
 }
 
+.quest-gold {
+    font-size: 8px;
+    color: #ffd700;
+    background-color: #3a2a1a;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid #8b6914;
+}
+
 .quest-item.completed .quest-xp {
     color: #809e9f;
     background-color: #2a3a2a;
     border-color: #598283;
+}
+
+.quest-item.completed .quest-gold {
+    color: #8b6914;
+    background-color: #2a2a1a;
+    border-color: #5a4a14;
+}
+
+.quest-item.completed .quest-gold {
+    color: #8b6914;
+    background-color: #2a2a1a;
+    border-color: #5a4a14;
 }
 
 .quest-description {
@@ -228,6 +261,13 @@
     font-size: 18px !important;
     font-weight: bold;
     margin-top: 10px !important;
+}
+
+.quest-gold-reward {
+    color: #ffd700 !important;
+    font-size: 18px !important;
+    font-weight: bold;
+    margin-top: 5px !important;
 }
 
 @media (max-width: 600px) {

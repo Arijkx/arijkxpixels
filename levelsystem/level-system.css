@@ -62,6 +62,26 @@
     color: #809e9f;
     flex-shrink: 0;
     white-space: nowrap;
+}
+
+.gold-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
     margin-right: 40px;
+}
+
+.gold-label {
+    font-size: 16px;
+    color: #befeff;
+}
+
+.gold-value {
+    font-size: 16px;
+    color: #ffd700;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: right;
 }
 

@@ -1,12 +1,15 @@
 // Quest System - Achievement Tracking and XP Rewards
 class QuestSystem {
     constructor() {
+        this.notificationQueue = [];
+        this.isShowingNotification = false;
         this.quests = [
             {
                 id: 'first_visit',
                 title: 'First Visit',
                 description: 'Welcome to the pixel art universe! You\'ve taken your first step into this creative world. Explore and discover what awaits you.',
                 xpReward: 50,
+                goldReward: 5,
                 completed: false
             },
             {
@@ -14,6 +17,7 @@ class QuestSystem {
                 title: 'About Me',
                 description: 'Get to know the artist behind the pixels! Learn about Arijkx\'s journey, inspiration, and passion for pixel art and game development.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -21,6 +25,7 @@ class QuestSystem {
                 title: 'Discover Artists',
                 description: 'Meet the pixel art masters! Explore the gallery of talented artists who inspire and share their incredible pixel art creations.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -28,6 +33,7 @@ class QuestSystem {
                 title: 'Browse Assets',
                 description: 'Dive into a collection of retro game assets! Browse through pixel art sprites, tiles, and resources perfect for your game projects.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -35,6 +41,7 @@ class QuestSystem {
                 title: 'Explore Development',
                 description: 'Peek behind the scenes! Discover the game development projects, tools, and creative process that bring pixel art to life.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -42,6 +49,7 @@ class QuestSystem {
                 title: 'Visit Shop',
                 description: 'Check out the marketplace! Browse through available game assets, wallpapers, and pixel art merchandise in the shop.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -49,6 +57,7 @@ class QuestSystem {
                 title: 'Check Tools',
                 description: 'Discover helpful tools and utilities! Explore a collection of free web-based tools designed to enhance your creative workflow.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -56,6 +65,7 @@ class QuestSystem {
                 title: 'Reach Level 5',
                 description: 'You\'re getting the hang of it! Keep exploring and spending time on the website to reach Level 5 and unlock new achievements.',
                 xpReward: 200,
+                goldReward: 20,
                 completed: false
             },
             {
@@ -63,6 +73,7 @@ class QuestSystem {
                 title: 'Reach Level 10',
                 description: 'You\'re becoming a pixel art enthusiast! Continue your journey and reach Level 10 by exploring all the content this website has to offer.',
                 xpReward: 500,
+                goldReward: 50,
                 completed: false
             },
             {
@@ -70,6 +81,7 @@ class QuestSystem {
                 title: 'Reach Level 20',
                 description: 'You\'re a true pixel art veteran! Reach the impressive Level 20 by dedicating time to explore and engage with all the creative content.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -77,6 +89,7 @@ class QuestSystem {
                 title: 'Quest Master',
                 description: 'You\'re on a roll! Complete 5 different quests to prove your dedication and earn the title of Quest Master.',
                 xpReward: 300,
+                goldReward: 30,
                 completed: false
             },
             {
@@ -84,6 +97,7 @@ class QuestSystem {
                 title: 'Completion',
                 description: 'The ultimate achievement! Complete every single quest on the website to prove you\'ve explored every corner of this pixel art universe.',
                 xpReward: 2000,
+                goldReward: 200,
                 completed: false
             },
   
@@ -92,6 +106,7 @@ class QuestSystem {
                 title: 'Support on Ko-fi',
                 description: 'Show your appreciation! Click the donate button on the dashboard to visit Ko-fi and support the artist\'s creative journey with a tip.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -99,6 +114,7 @@ class QuestSystem {
                 title: 'Try LiveSpirits',
                 description: 'Enhance your streaming experience! Click the free trial button on the dashboard to explore LiveSpirits, a platform for stream companions.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -106,6 +122,7 @@ class QuestSystem {
                 title: 'Check Trusted Partners',
                 description: 'Explore the network! Visit the Trusted Partners page to discover talented artists, developers, and creators in the pixel art community.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -113,6 +130,7 @@ class QuestSystem {
                 title: 'My Profile Forge',
                 description: 'Create and manage your profiles! Open the My Profile Forge tool from the Tools page - your all-in-one platform for profile creation.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -120,6 +138,7 @@ class QuestSystem {
                 title: 'Trading Card Builder',
                 description: 'Design your own trading cards! Open the Trading Card Builder tool to create custom trading cards for your favorite games and characters.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -127,6 +146,7 @@ class QuestSystem {
                 title: 'WebP Converter',
                 description: 'Convert images effortlessly! Open the WebP Converter tool to transform your images into the modern WebP format - it\'s free and easy to use.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -134,6 +154,7 @@ class QuestSystem {
                 title: 'Note 8',
                 description: 'Keep your notes organized! Open the Note 8 tool from the Tools page - a handy browser-based note-taking tool to keep your thoughts accessible.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -141,6 +162,7 @@ class QuestSystem {
                 title: 'Join Discord',
                 description: 'Become part of the community! Click the Discord link on the Contact page to join the server, chat with fellow artists, and get support.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -148,6 +170,7 @@ class QuestSystem {
                 title: 'Follow on Twitch',
                 description: 'Watch the magic happen live! Visit the Twitch channel from the Contact page to watch live art creation streams and interact with the community.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -155,6 +178,7 @@ class QuestSystem {
                 title: 'Follow on Instagram',
                 description: 'Stay connected with the latest pixel art! Click the Instagram link in the header or footer to follow and see daily pixel art creations and behind-the-scenes content.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -162,6 +186,7 @@ class QuestSystem {
                 title: 'Follow on Twitter',
                 description: 'Join the conversation! Click the Twitter/X link in the header or footer to follow for updates, pixel art posts, and community interactions.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             },
             {
@@ -169,6 +194,7 @@ class QuestSystem {
                 title: 'Subscribe on YouTube',
                 description: 'Watch pixel art tutorials and content! Click the YouTube link in the header or footer to subscribe and never miss new videos, tutorials, and pixel art showcases.',
                 xpReward: 1000,
+                goldReward: 100,
                 completed: false
             }
         ];
@@ -211,6 +237,11 @@ class QuestSystem {
                 levelSystem.addXP(quest.xpReward);
             }
             
+            // Add Gold (check for both existence and value > 0)
+            if (levelSystem && quest.goldReward !== undefined && quest.goldReward !== null && quest.goldReward > 0) {
+                levelSystem.addGold(quest.goldReward);
+            }
+            
             // Update UI
             this.updateUI();
             
@@ -219,7 +250,8 @@ class QuestSystem {
                 // Store quest info for notification on next page
                 sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
                     title: quest.title,
-                    xpReward: quest.xpReward
+                    xpReward: quest.xpReward,
+                    goldReward: quest.goldReward || 0
                 }));
             } else {
                 this.showQuestCompleteNotification(quest);
@@ -271,17 +303,40 @@ class QuestSystem {
             // Tab is in background, store notification and show when tab becomes visible
             sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
                 title: quest.title,
-                xpReward: quest.xpReward
+                xpReward: quest.xpReward,
+                goldReward: quest.goldReward || 0
             }));
             return;
         }
+        
+        // Add to queue
+        this.notificationQueue.push(quest);
+        
+        // Start processing queue if not already showing
+        if (!this.isShowingNotification) {
+            this.processNotificationQueue();
+        }
+    }
+    
+    // Process notification queue one by one
+    processNotificationQueue() {
+        if (this.notificationQueue.length === 0) {
+            this.isShowingNotification = false;
+            return;
+        }
+        
+        this.isShowingNotification = true;
+        const quest = this.notificationQueue.shift();
         
         // Delay to ensure page transition is complete
         setTimeout(() => {
             // Check if document.body exists (page is loaded)
             if (!document.body) {
                 // If body doesn't exist yet, wait a bit more
-                setTimeout(() => this.showQuestCompleteNotification(quest), 100);
+                setTimeout(() => {
+                    this.notificationQueue.unshift(quest); // Put back at front
+                    this.processNotificationQueue();
+                }, 100);
                 return;
             }
             
@@ -290,18 +345,25 @@ class QuestSystem {
                 // Tab became hidden, store for later
                 sessionStorage.setItem('pendingQuestNotification', JSON.stringify({
                     title: quest.title,
-                    xpReward: quest.xpReward
+                    xpReward: quest.xpReward,
+                    goldReward: quest.goldReward || 0
                 }));
+                // Continue with next notification
+                this.processNotificationQueue();
                 return;
             }
             
             const notification = document.createElement('div');
             notification.className = 'quest-notification';
+            // Handle both full quest objects and questInfo objects from sessionStorage
+            const goldReward = quest.goldReward !== undefined ? quest.goldReward : null;
+            const goldText = (goldReward !== null && goldReward > 0) ? `<p class="quest-gold-reward">+${goldReward} Gold</p>` : '';
             notification.innerHTML = `
                 <div class="quest-notification-content">
                     <h3>Quest Completed!</h3>
                     <p>${quest.title}</p>
                     <p class="quest-xp-reward">+${quest.xpReward} XP</p>
+                    ${goldText}
                 </div>
             `;
             document.body.appendChild(notification);
@@ -313,7 +375,7 @@ class QuestSystem {
                 }
             }, 10);
             
-            // Remove after 3 seconds (only if tab is still visible)
+            // Remove after 7 seconds (only if tab is still visible)
             setTimeout(() => {
                 if (!document.hidden && notification.parentNode) {
                     notification.classList.remove('show');
@@ -321,12 +383,19 @@ class QuestSystem {
                         if (notification.parentNode) {
                             document.body.removeChild(notification);
                         }
+                        // Process next notification in queue
+                        this.processNotificationQueue();
                     }, 500);
                 } else if (notification.parentNode) {
                     // Tab was hidden, remove immediately
                     document.body.removeChild(notification);
+                    // Process next notification in queue
+                    this.processNotificationQueue();
+                } else {
+                    // Process next notification in queue
+                    this.processNotificationQueue();
                 }
-            }, 3000);
+            }, 5000);
         }, 300); // 300ms delay to ensure page transition is complete
     }
 
@@ -342,10 +411,14 @@ class QuestSystem {
         this.quests.forEach(quest => {
             const questElement = document.createElement('div');
             questElement.className = `quest-item ${quest.completed ? 'completed' : ''}`;
+            const goldDisplay = quest.goldReward ? `<span class="quest-gold">+${quest.goldReward} Gold</span>` : '';
             questElement.innerHTML = `
                 <div class="quest-header">
                     <h3 class="quest-title">${quest.title}</h3>
-                    <span class="quest-xp">+${quest.xpReward} XP</span>
+                    <div class="quest-rewards">
+                        <span class="quest-xp">+${quest.xpReward} XP</span>
+                        ${goldDisplay}
+                    </div>
                 </div>
                 <p class="quest-description">${quest.description}</p>
                 ${quest.completed ? '<div class="quest-badge quest-badge-completed">Completed</div>' : '<div class="quest-badge quest-badge-uncompleted">Uncompleted</div>'}
@@ -368,6 +441,11 @@ class QuestSystem {
         
         const statsElement = document.getElementById('quest-stats');
         if (statsElement) {
+            // Calculate total gold earned from completed quests
+            const totalGoldEarned = this.quests
+                .filter(quest => quest.completed && quest.goldReward)
+                .reduce((sum, quest) => sum + quest.goldReward, 0);
+            
             statsElement.innerHTML = `
                 <div class="stat-item">
                     <span class="stat-label">Completed:</span>
@@ -376,6 +454,10 @@ class QuestSystem {
                 <div class="stat-item">
                     <span class="stat-label">XP earned:</span>
                     <span class="stat-value">${totalXPEarned} XP</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Gold earned:</span>
+                    <span class="stat-value" id="quest-gold-earned">${totalGoldEarned} Gold</span>
                 </div>
             `;
         }
@@ -450,7 +532,11 @@ class QuestSystem {
                 setTimeout(() => {
                     // Double-check tab is still visible before showing
                     if (!document.hidden) {
-                        this.showQuestCompleteNotification(questInfo);
+                        // Add to queue instead of showing directly
+                        this.notificationQueue.push(questInfo);
+                        if (!this.isShowingNotification) {
+                            this.processNotificationQueue();
+                        }
                     } else {
                         // Tab became hidden again, restore to storage
                         sessionStorage.setItem('pendingQuestNotification', JSON.stringify(questInfo));

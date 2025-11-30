@@ -1,0 +1,507 @@
+/* W A L L P A P E R   S H O P */
+.wallpaper-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.wallpaper-card {
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    min-width: 344px;
+    max-width: 344px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f;
+    display: flex;
+    flex-direction: column;
+}
+
+.wallpaper-card.purchased {
+    border-color: #befeff;
+}
+
+.wallpaper-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #0d001a;
+}
+
+.wallpaper-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    transition: filter 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+.purchased-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #befeff;
+    color: #0d001a;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.wallpaper-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.wallpaper-title {
+    font-size: 18px;
+    color: #befeff;
+    margin: 0;
+}
+
+.wallpaper-description {
+    font-size: 12px;
+    color: #809e9f;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.wallpaper-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px 0;
+}
+
+.wallpaper-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.wallpaper-price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #598283;
+}
+
+.wallpaper-price-label {
+    font-size: 8px;
+    color: #809e9f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.wallpaper-price-badge {
+    font-size: 18px;
+    color: #ffd700;
+    font-weight: bold;
+    padding: 8px 20px;
+    background-color: #3a2a1a;
+    border: 2px solid #8b6914;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wallpaper-format {
+    font-size: 8px;
+    color: #809e9f;
+    background-color: #314050;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid #598283;
+}
+
+.wallpaper-type-badge {
+    font-size: 8px;
+    color: #befeff;
+    background-color: #314050;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid #598283;
+    text-transform: lowercase;
+}
+
+.wallpaper-button {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-family: PixelFont;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    margin-top: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.buy-button {
+    color: #befeff;
+    background-color: #314050;
+    box-shadow: 0 6px #000000;
+}
+
+.buy-button:hover {
+    background-color: #4c5968;
+}
+
+.buy-button:active {
+    background-color: #4c5968;
+    box-shadow: 0 3px #0a0a0a;
+    transform: translateY(4px);
+}
+
+.download-button {
+    color: #befeff;
+    background-color: #314050;
+    box-shadow: 0 6px #000000;
+}
+
+.download-button:hover {
+    background-color: #4c5968;
+}
+
+.download-button:active {
+    background-color: #a2ffff;
+    box-shadow: 0 3px #2c3a3b;
+    transform: translateY(4px);
+}
+
+.wallpaper-notification {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-family: PixelFont;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f;
+    max-width: 300px;
+    line-height: 1.5;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.wallpaper-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.wallpaper-notification.success {
+    border-color: #befeff;
+    background-color: #1b2127;
+}
+
+.wallpaper-notification.error {
+    border-color: #befeff;
+    background-color: #1b2127;
+}
+
+/* P O P U P   F O R   N O T   E N O U G H   G O L D */
+
+.wallpaper-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.wallpaper-popup-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wallpaper-popup {
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f,
+        0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.wallpaper-popup-overlay.show .wallpaper-popup {
+    transform: scale(1);
+}
+
+.wallpaper-popup-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.wallpaper-popup-title {
+    font-size: 24px;
+    color: #befeff;
+    margin: 0 0 20px 0;
+    font-family: PixelFont;
+}
+
+.wallpaper-popup-message {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.wallpaper-popup-message p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.gold-highlight {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.wallpaper-popup-difference {
+    margin-top: 15px !important;
+    font-size: 14px !important;
+    color: #809e9f;
+}
+
+.wallpaper-popup-button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-family: PixelFont;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    background-color: #314050;
+    box-shadow: 0 6px #000000;
+    transition: all 0.2s ease;
+}
+
+.wallpaper-popup-button:hover {
+    background-color: #4c5968;
+}
+
+.wallpaper-popup-button:active {
+    background-color: #4c5968;
+    box-shadow: 0 3px #000000;
+    transform: translateY(4px);
+}
+
+/* P R E V I E W   P O P U P */
+
+.wallpaper-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.wallpaper-preview-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wallpaper-preview-popup {
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 0;
+    max-width: 90%;
+    max-height: 90vh;
+    width: auto;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    box-shadow:
+        0 2px 0 #2c3a3b,
+        0 4px 0 #809e9f,
+        0 8px 0 #598283,
+        0 10px 0 #809e9f,
+        0px 10px 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.wallpaper-preview-overlay.show .wallpaper-preview-popup {
+    transform: scale(1);
+}
+
+.wallpaper-preview-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.wallpaper-preview-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #1b2127;
+    border: 2px solid #befeff;
+    border-radius: 3px;
+    color: #befeff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+    font-family: PixelFont;
+}
+
+.wallpaper-preview-close:hover {
+    background-color: #befeff;
+    color: #0d001a;
+}
+
+.wallpaper-preview-image {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    image-rendering: pixelated;
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+.wallpaper-preview-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.wallpaper-preview-title {
+    font-size: 24px;
+    color: #befeff;
+    margin: 0 0 10px 0;
+    font-family: PixelFont;
+}
+
+.wallpaper-preview-description {
+    font-size: 14px;
+    color: #809e9f;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .wallpaper-card {
+        min-width: 344px;
+        max-width: 344px;
+    }
+    
+    .wallpaper-notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .wallpaper-preview-popup {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+    
+    .wallpaper-preview-image {
+        max-height: 60vh;
+    }
+}
+

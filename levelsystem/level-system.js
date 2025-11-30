@@ -1,11 +1,12 @@
 // Level System - XP Tracking und Local Storage
 class LevelSystem {
     constructor() {
-        this.xpPerSecond = 10;
+        this.xpPerSecond = 5;
         this.totalXP = 0;
         this.level = 1;
         this.xpForCurrentLevel = 0;
         this.xpNeededForNextLevel = 100;
+        this.gold = 0;
         this.intervalId = null;
         this.lastUpdateTime = Date.now();
         
@@ -47,6 +48,7 @@ class LevelSystem {
         if (saved) {
             const data = JSON.parse(saved);
             this.totalXP = data.totalXP || 0;
+            this.gold = data.gold || 0;
             this.lastUpdateTime = data.lastUpdateTime || Date.now();
             
             // Berechne Level basierend auf gespeichertem XP
@@ -59,8 +61,12 @@ class LevelSystem {
 
     // Daten in Local Storage speichern
     saveToStorage() {
+        // Ensure we're saving the current state, not a stale copy
+        const currentGold = this.gold;
+        const currentXP = this.totalXP;
         const data = {
-            totalXP: this.totalXP,
+            totalXP: currentXP,
+            gold: currentGold,
             lastUpdateTime: Date.now()
         };
         localStorage.setItem('levelSystem', JSON.stringify(data));
@@ -85,11 +91,21 @@ class LevelSystem {
         }
     }
 
+    // Gold hinzufügen
+    addGold(amount) {
+        if (amount && amount > 0) {
+            this.gold += amount;
+            this.updateUI();
+            this.saveToStorage();
+        }
+    }
+
     // UI aktualisieren
     updateUI() {
         const levelValueEl = document.getElementById('level-value');
         const xpProgressFillEl = document.getElementById('xp-progress-fill');
         const xpTextEl = document.getElementById('xp-text');
+        const goldValueEl = document.getElementById('gold-value');
         
         if (levelValueEl) {
             levelValueEl.textContent = this.level;
@@ -102,6 +118,10 @@ class LevelSystem {
         
         if (xpTextEl) {
             xpTextEl.textContent = `${this.xpForCurrentLevel}/${this.xpNeededForNextLevel} XP`;
+        }
+        
+        if (goldValueEl) {
+            goldValueEl.textContent = this.gold.toLocaleString();
         }
     }
 
