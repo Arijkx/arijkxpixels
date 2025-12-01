@@ -13,6 +13,46 @@ class QuestSystem {
                 completed: false
             },
             {
+                id: 'level_5',
+                title: 'Reach Level 5',
+                description: 'You\'re getting the hang of it! Keep exploring and spending time on the website to reach Level 5 and unlock new achievements.',
+                xpReward: 200,
+                goldReward: 20,
+                completed: false
+            },
+            {
+                id: 'level_10',
+                title: 'Reach Level 10',
+                description: 'You\'re becoming a pixel art enthusiast! Continue your journey and reach Level 10 by exploring all the content this website has to offer.',
+                xpReward: 500,
+                goldReward: 50,
+                completed: false
+            },
+            {
+                id: 'level_20',
+                title: 'Reach Level 20',
+                description: 'You\'re a true pixel art veteran! Reach the impressive Level 20 by dedicating time to explore and engage with all the creative content.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'complete_5_quests',
+                title: 'Quest Master',
+                description: 'You\'re on a roll! Complete 5 different quests to prove your dedication and earn the title of Quest Master.',
+                xpReward: 300,
+                goldReward: 30,
+                completed: false
+            },
+            {
+                id: 'complete_all_quests',
+                title: 'Completion',
+                description: 'The ultimate achievement! Complete every single quest on the website to prove you\'ve explored every corner of this pixel art universe.',
+                xpReward: 2000,
+                goldReward: 200,
+                completed: false
+            },
+            {
                 id: 'explore_about',
                 title: 'About Me',
                 description: 'Get to know the artist behind the pixels! Learn about Arijkx\'s journey, inspiration, and passion for pixel art and game development.',
@@ -53,55 +93,6 @@ class QuestSystem {
                 completed: false
             },
             {
-                id: 'explore_tools',
-                title: 'Check Tools',
-                description: 'Discover helpful tools and utilities! Explore a collection of free web-based tools designed to enhance your creative workflow.',
-                xpReward: 1000,
-                goldReward: 100,
-                completed: false
-            },
-            {
-                id: 'level_5',
-                title: 'Reach Level 5',
-                description: 'You\'re getting the hang of it! Keep exploring and spending time on the website to reach Level 5 and unlock new achievements.',
-                xpReward: 200,
-                goldReward: 20,
-                completed: false
-            },
-            {
-                id: 'level_10',
-                title: 'Reach Level 10',
-                description: 'You\'re becoming a pixel art enthusiast! Continue your journey and reach Level 10 by exploring all the content this website has to offer.',
-                xpReward: 500,
-                goldReward: 50,
-                completed: false
-            },
-            {
-                id: 'level_20',
-                title: 'Reach Level 20',
-                description: 'You\'re a true pixel art veteran! Reach the impressive Level 20 by dedicating time to explore and engage with all the creative content.',
-                xpReward: 1000,
-                goldReward: 100,
-                completed: false
-            },
-            {
-                id: 'complete_5_quests',
-                title: 'Quest Master',
-                description: 'You\'re on a roll! Complete 5 different quests to prove your dedication and earn the title of Quest Master.',
-                xpReward: 300,
-                goldReward: 30,
-                completed: false
-            },
-            {
-                id: 'complete_all_quests',
-                title: 'Completion',
-                description: 'The ultimate achievement! Complete every single quest on the website to prove you\'ve explored every corner of this pixel art universe.',
-                xpReward: 2000,
-                goldReward: 200,
-                completed: false
-            },
-  
-            {
                 id: 'open_kofi',
                 title: 'Support on Ko-fi',
                 description: 'Show your appreciation! Click the donate button on the dashboard to visit Ko-fi and support the artist\'s creative journey with a tip.',
@@ -121,6 +112,54 @@ class QuestSystem {
                 id: 'check_trusted_partners',
                 title: 'Check Trusted Partners',
                 description: 'Explore the network! Visit the Trusted Partners page to discover talented artists, developers, and creators in the pixel art community.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_contact',
+                title: 'Visit Contact',
+                description: 'Get in touch! Visit the Contact page to find ways to connect with the artist, join the community, or reach out for collaborations and commissions.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_rewards',
+                title: 'Check Rewards',
+                description: 'Unlock exclusive content! Visit the Rewards page to see available wallpapers and unlockable content that you can purchase with your earned Gold.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_quests',
+                title: 'View Quests',
+                description: 'Track your progress! Visit the Quests page to see all available achievements, track your completion status, and discover new challenges to complete.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_services',
+                title: 'View Services',
+                description: 'Check out what\'s available! Visit the Services page to see commissions, web design, server design, and profile design offerings.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_feed',
+                title: 'Check News Feed',
+                description: 'Stay up to date! Visit the News Feed page to see the latest updates, posts, and announcements from Arijkx.',
+                xpReward: 1000,
+                goldReward: 100,
+                completed: false
+            },
+            {
+                id: 'explore_tools',
+                title: 'Check Tools',
+                description: 'Discover helpful tools and utilities! Explore a collection of free web-based tools designed to enhance your creative workflow.',
                 xpReward: 1000,
                 goldReward: 100,
                 completed: false
@@ -198,29 +237,22 @@ class QuestSystem {
                 completed: false
             },
             {
-                id: 'explore_contact',
-                title: 'Visit Contact',
-                description: 'Get in touch! Visit the Contact page to find ways to connect with the artist, join the community, or reach out for collaborations and commissions.',
+                id: 'open_reddit',
+                title: 'Follow on Reddit',
+                description: 'Join the community on Reddit! Click the Reddit link in the footer to follow and stay connected with pixel art discussions and updates.',
                 xpReward: 1000,
                 goldReward: 100,
                 completed: false
             },
             {
-                id: 'explore_rewards',
-                title: 'Check Rewards',
-                description: 'Unlock exclusive content! Visit the Rewards page to see available wallpapers and unlockable content that you can purchase with your earned Gold.',
-                xpReward: 1000,
-                goldReward: 100,
-                completed: false
-            },
-            {
-                id: 'explore_quests',
-                title: 'View Quests',
-                description: 'Track your progress! Visit the Quests page to see all available achievements, track your completion status, and discover new challenges to complete.',
+                id: 'open_mastodon',
+                title: 'Follow on Mastodon',
+                description: 'Connect on Mastodon! Click the Mastodon link in the footer to follow and see the latest pixel art posts and updates on the fediverse.',
                 xpReward: 1000,
                 goldReward: 100,
                 completed: false
             }
+ 
         ];
         
         this.loadFromStorage();
@@ -594,7 +626,9 @@ class QuestSystem {
             'contact.html': 'explore_contact',
             'rewards.html': 'explore_rewards',
             'quests.html': 'explore_quests',
-            'partner.html': 'check_trusted_partners'
+            'partner.html': 'check_trusted_partners',
+            'services.html': 'explore_services',
+            'feed.html': 'explore_feed'
         };
         
         if (pageQuests[currentPage]) {
@@ -742,6 +776,20 @@ class QuestSystem {
                 this.completeQuest('explore_quests', true);
             });
         });
+
+        const servicesLinks = document.querySelectorAll('a[href*="services.html"]');
+        servicesLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('explore_services', true);
+            });
+        });
+
+        const feedLinks = document.querySelectorAll('a[href*="feed.html"]');
+        feedLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('explore_feed', true);
+            });
+        });
         
         // Instagram link (Header and Footer)
         const instagramLinks = document.querySelectorAll('a[href*="instagram.com/arijkx"]');
@@ -764,6 +812,22 @@ class QuestSystem {
         youtubeLinks.forEach(link => {
             link.addEventListener('click', () => {
                 this.completeQuest('open_youtube');
+            });
+        });
+        
+        // Reddit link (Footer)
+        const redditLinks = document.querySelectorAll('a[href*="reddit.com/user/Arijkx"]');
+        redditLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('open_reddit');
+            });
+        });
+        
+        // Mastodon link (Footer)
+        const mastodonLinks = document.querySelectorAll('a[href*="mastodon.social/@arijkx"]');
+        mastodonLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.completeQuest('open_mastodon');
             });
         });
     }
