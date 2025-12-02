@@ -6,56 +6,93 @@ class UnlockRewards {
                 id: 'fallen_kingdom_standard',
                 title: 'Fallen Kingdom Standard',
                 description: 'Explore deeper into the mysterious ruins. The standard wallpaper.',
-                image: 'wallpaper/fallen_kingdom_wallpaper.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper.png',
                 price: 50,
-                file: 'wallpaper/fallen_kingdom_wallpaper.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper.png',
                 tags: ['1280x720', 'wallpaper', 'PNG',]
             },
             {
                 id: 'fallen_kingdom_blue_portal',
                 title: 'Fallen Kingdom Blue Portal',
                 description: 'Explore deeper into the mysterious ruins. With a blue portal.',
-                image: 'wallpaper/fallen_kingdom_wallpaper_2.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_2.png',
                 price: 75,
-                file: 'wallpaper/fallen_kingdom_wallpaper_2.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_2.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
             },
             {
                 id: 'fallen_kingdom_red_portal',
                 title: 'Fallen Kingdom Red Portal',
                 description: 'Explore deeper into the mysterious ruins. With a red portal.',
-                image: 'wallpaper/fallen_kingdom_wallpaper_5.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_5.png',
                 price: 75,
-                file: 'wallpaper/fallen_kingdom_wallpaper_5.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_5.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
             },
             {
                 id: 'fallen_kingdom_blue_portal_shield',
                 title: 'Fallen Kingdom B. Portal & Shield',
                 description: 'Explore deeper into the mysterious ruins. With a blue portal and a shield.',
-                image: 'wallpaper/fallen_kingdom_wallpaper_3.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_3.png',
                 price: 75,
-                file: 'wallpaper/fallen_kingdom_wallpaper_3.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_3.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
             },
             {
                 id: 'fallen_kingdom_red_portal_shield',
                 title: 'Fallen Kingdom R. Portal & Shield',
                 description: 'Explore deeper into the mysterious ruins. With a red portal and a shield.',
-                image: 'wallpaper/fallen_kingdom_wallpaper_4.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_4.png',
                 price: 75,
-                file: 'wallpaper/fallen_kingdom_wallpaper_4.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_wallpaper_4.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
+            },
+            {
+                id: 'fallen_kingdom_light_portal_shield',
+                title: 'Fallen Kingdom Light Portal & Shield',
+                description: 'An epic sci-fi pixel art scene of Martian invasion. Earth strikes back.',
+                image: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_portal&shield_3840x2160.png',
+                price: 80,
+                file: 'wallpaper/arijkx_pixels_wallpaper_fallen_kingdom_portal&shield_3840x2160.png',
+                tags: ['3840x2160', 'wallpaper', 'PNG']
             },
             {
                 id: 'invasion_mars',
                 title: 'Invasion on Mars - Earth strikes back',
                 description: 'An epic sci-fi pixel art scene of Martian invasion. Earth strikes back.',
-                image: 'wallpaper/INVASION_ON_MARS_1280x720_Original_SIZE.png',
+                image: 'wallpaper/arijkx_pixels_wallpaper_INVASION_ON_MARS_1280x720_Original_SIZE.png',
                 price: 80,
-                file: 'wallpaper/INVASION_ON_MARS_1280x720_Original_SIZE.png',
+                file: 'wallpaper/arijkx_pixels_wallpaper_INVASION_ON_MARS_1280x720_Original_SIZE.png',
+                tags: ['1280x720', 'wallpaper', 'PNG']
+            },
+            {
+                id: 'mars_city_1',
+                title: 'Mars City before the invasion Part 1',
+                description: 'A futuristic pixel art cityscape on Mars. Explore the red planet\'s urban landscape.',
+                image: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city1.png',
+                price: 70,
+                file: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city1.png',
+                tags: ['1280x720', 'wallpaper', 'PNG']
+            },
+            {
+                id: 'mars_city_2',
+                title: 'Mars City before the invasion Part 2',
+                description: 'A futuristic pixel art cityscape on Mars. Explore the red planet\'s urban landscape.',
+                image: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city2.png',
+                price: 70,
+                file: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city2.png',
+                tags: ['1280x720', 'wallpaper', 'PNG']
+            },
+            {
+                id: 'mars_city_3',
+                title: 'Mars City before the invasion Part 3',
+                description: 'A futuristic pixel art cityscape on Mars. Explore the red planet\'s urban landscape.',
+                image: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city3.png',
+                price: 70,
+                file: 'wallpaper/arijkx_pixels_wallpaper_1280x720p_mars_city3.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
             }
+        
         ];
         
         this.purchasedRewards = this.loadPurchasedRewards();
