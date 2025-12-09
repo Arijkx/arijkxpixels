@@ -22,6 +22,10 @@ p1 {
     font-size: 16px;
 }
 
+p2 {
+    font-size: 24px;
+}
+
 .size1 {
     font-size: 8px;
 }
@@ -587,6 +591,10 @@ a:active {
     }
 
     h1, h2, h3 {
+        font-size: 16px;
+    }
+
+    p2 {
         font-size: 16px;
     }
 }
