@@ -58,12 +58,21 @@ class UnlockRewards {
             },
             {
                 id: 'invasion_mars',
-                title: 'Invasion on Mars - Earth strikes back',
+                title: 'Invasion on Mars Earth strikes back',
                 description: 'An epic sci-fi pixel art scene of Martian invasion. Earth strikes back.',
                 image: 'wallpaper/arijkx_pixels_wallpaper_INVASION_ON_MARS_1280x720_Original_SIZE.png',
                 price: 80,
                 file: 'wallpaper/arijkx_pixels_wallpaper_INVASION_ON_MARS_1280x720_Original_SIZE.png',
                 tags: ['1280x720', 'wallpaper', 'PNG']
+            },
+            {
+                id: 'invasion_mars2',
+                title: 'Invasion on Mars 2 Earth strikes back',
+                description: 'An epic sci-fi pixel art scene of Martian invasion. Earth strikes back.',
+                image: 'wallpaper/arijkx_pixels_wallpaper_2560x1440p_invasion_on_mars.png',
+                price: 90,
+                file: 'wallpaper/arijkx_pixels_wallpaper_2560x1440p_invasion_on_mars.png',
+                tags: ['2560x1440', 'wallpaper', 'PNG']
             },
             {
                 id: 'mars_city_1',
