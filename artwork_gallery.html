@@ -24,71 +24,121 @@
     <!-- Header wird dynamisch geladen -->
     <div id="header-placeholder"></div>
 
-    <!-- Neuer Content-Container -->
-    <div class="content-container">
+    <!-- Filter Bereich -->
+    <div class="filter-container">
+        <div class="asset-filter-container">
+            <p class="size1" style="margin-bottom: 10px; text-align: center;">FILTER BY TAG:</p>
+            <div class="asset-filter-buttons">
+                <button class="asset-filter-btn active" data-tag="all">all</button>
+                <button class="asset-filter-btn" data-tag="big_picture">big picture</button>
+                <button class="asset-filter-btn" data-tag="animation">animation</button>
+                <button class="asset-filter-btn" data-tag="battle">battle</button>
+                <button class="asset-filter-btn" data-tag="conceptart">conceptart</button>
+                <button class="asset-filter-btn" data-tag="space">space</button>
+                <button class="asset-filter-btn" data-tag="scifi">scifi</button>
+                <button class="asset-filter-btn" data-tag="mystic">mystic</button>
+            </div>
+        </div>
+    </div>
 
-        <div class="gallery-container">
+    <!-- Neuer Content-Container -->
+    <div class="content-container" id="gallery-container">
+
+        <div class="gallery-container gallery-item" data-tags="battle space scifi">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_invasion_on_mars.png" data-preview-title="Invasion on Mars">
                 <img src="gallery/thumbnails/thumbnail_invasion_on_mars.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>INVASION ON MARS</p1>
             <p class="size1">INVASION ON MARS FIRST VERSION</p>
+            <div class="asset-tags">
+                <span class="asset-tag">battle</span>
+                <span class="asset-tag">space</span>
+                <span class="asset-tag">scifi</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="battle space scifi">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_space_battle_01.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_space_battle_01.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>SPACE BATTLE</p1>
             <p class="size1">MARS VS EARTH SPACE BATTLE</p>
+            <div class="asset-tags">
+                <span class="asset-tag">battle</span>
+                <span class="asset-tag">space</span>
+                <span class="asset-tag">scifi</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="battle space scifi big_picture">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_battle_on_mars_big_picture.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_battle_on_mars_big_picture.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>FINAL MARS BATTLE</p1>
             <p class="size1">BIG PICTURE OF THE FINAL MARS BATTLE</p>
+            <div class="asset-tags">
+                <span class="asset-tag">battle</span>
+                <span class="asset-tag">space</span>
+                <span class="asset-tag">scifi</span>
+                <span class="asset-tag">big picture</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="space scifi">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_mars_city.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_mars_city.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>MARS CITY</p1>
             <p class="size1">MARS CITY AFTER THE INVASION</p>
+            <div class="asset-tags">
+                <span class="asset-tag">space</span>
+                <span class="asset-tag">scifi</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="mystic conceptart">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_fallen_kingdom.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_fallen_kingdom.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>THE FALLEN KINGDOM</p1>
             <p class="size1">THE FALLEN KINGDOM PORTAL OPENING</p>
+            <div class="asset-tags">
+                <span class="asset-tag">mystic</span>
+                <span class="asset-tag">conceptart</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="conceptart">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_choppes_journey_sample_map.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_choppes_journey_sample_map.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>CHOPPERS JOURNEY MAP</p1>
             <p class="size1">CONCEPT ART OF THE CHOPPERS JOURNEY</p>
+            <div class="asset-tags">
+                <span class="asset-tag">conceptart</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="conceptart">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_plasmaswords.png" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_plasmaswords.png" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>PLASMA SWORDS</p1>
             <p class="size1">PLASMA SWORDS CONCEPT ART</p>
+            <div class="asset-tags">
+                <span class="asset-tag">conceptart</span>
+            </div>
         </div>
 
-        <div class="gallery-container">
+        <div class="gallery-container gallery-item" data-tags="animation">
             <div class="gallery-image-container" data-preview-image="gallery/artworks/artworks_goodnight.gif" data-preview-title="Space Battle">
                 <img src="gallery/thumbnails/thumbnail_goodnight.gif" alt="Cover Image" style="cursor: pointer;" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
             <p1>GOOD NIGHT TV</p1>
             <p class="size1">ANIMATED TV SAYS GOOD NIGHT TO THE VIEWER</p>
+            <div class="asset-tags">
+                <span class="asset-tag">animation</span>
+            </div>
         </div>
 
     </div>
@@ -96,6 +146,39 @@
     <div id="footer-placeholder"></div>
     
     <div id="scroll-to-top-placeholder"></div>
+    
+    <!-- Gallery Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.asset-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const selectedTag = this.getAttribute('data-tag');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (selectedTag === 'all') {
+                            item.style.display = '';
+                        } else {
+                            const itemTags = item.getAttribute('data-tags').split(' ');
+                            if (itemTags.includes(selectedTag)) {
+                                item.style.display = '';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
