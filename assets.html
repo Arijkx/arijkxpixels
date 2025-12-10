@@ -24,12 +24,33 @@
     <div id="header-placeholder"></div>
     
 
-    <!-- Neuer Content-Container -->
-    <div class="content-container">
+    <!-- Filter Bereich -->
+    <div class="filter-container">
+        <div class="asset-filter-container">
+            <p class="size1" style="margin-bottom: 10px; text-align: center;">FILTER BY TAG:</p>
+            <div class="asset-filter-buttons">
+                <button class="asset-filter-btn active" data-tag="all">all</button>
+                <button class="asset-filter-btn" data-tag="parallax">parallax</button>
+                <button class="asset-filter-btn" data-tag="png">png</button>
+                <button class="asset-filter-btn" data-tag="spritesheet">spritesheet</button>
+                <button class="asset-filter-btn" data-tag="items">items</button>
+                <button class="asset-filter-btn" data-tag="portal">portal</button>
+                <button class="asset-filter-btn" data-tag="rune">rune</button>
+            </div>
+        </div>
+    </div>
 
-        <div class="inner-container">
+    <!-- Neuer Content-Container -->
+    <div class="content-container" id="assets-container">
+
+        <div class="inner-container asset-item" data-tags="parallax png">
             <img src="post/assets_marscity.png" alt="Cover Image">
             <p1>MARS CITY</p1>
+          
+            <div class="asset-tags">
+                <span class="asset-tag">parallax</span>
+                <span class="asset-tag">png</span>
+            </div>
             <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
             <!-- Button mit Link -->
             <a href="https://arijkx.itch.io/mars-city" target="_blank">
@@ -37,9 +58,14 @@
             </a>
         </div>
 
-        <div class="inner-container">
+        <div class="inner-container asset-item" data-tags="parallax png">
             <img src="post/assets_lostking.png" alt="Cover Image">
             <p1>LOST KINGDOM</p1>
+      
+            <div class="asset-tags">
+                <span class="asset-tag">parallax</span>
+                <span class="asset-tag">png</span>
+            </div>
             <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
             <!-- Button mit Link -->
             <a href="https://arijkx.itch.io/parallax-background-lost-kingdom" target="_blank">
@@ -47,32 +73,30 @@
             </a>
         </div>
 
-        <div class="inner-container">
+        <div class="inner-container asset-item" data-tags="parallax png">
             <img src="post/assets_fallenking.png" alt="Cover Image">
             <p1>FALLEN KINGDOM</p1>
+    
+            <div class="asset-tags">
+                <span class="asset-tag">parallax</span>
+                <span class="asset-tag">png</span>
+            </div>
             <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
             <!-- Button mit Link -->
             <a href="https://arijkx.itch.io/thefallenkingdomparallaxbackgroundpixelart" target="_blank">
                 <button class="inner-container-button">open</button>
             </a>
         </div>
-        
-        <!--
-
-        <div class="inner-container">
-            <img src="post/assets_attackmars.png" alt="Cover Image">
-            <p>ATTACK ON MARS</p>
-            <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
-                <button class="inner-container-button">coming soon</button>
-            </a>
-        </div> 
-        
-        -->
-
-
-        <div class="inner-container">
+   
+        <div class="inner-container asset-item" data-tags="spritesheet items rune">
             <img src="post/assets_animatedrune1.gif" alt="Cover Image">
             <p1>ANIMATED RUNE</p1>
+          
+            <div class="asset-tags">
+                <span class="asset-tag">spritesheet</span>
+                <span class="asset-tag">items</span>
+                <span class="asset-tag">rune</span>
+            </div>
             <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
             <!-- Button mit Link -->
             <a href="https://arijkx.itch.io/pixel-art-animated-runes" target="_blank">
@@ -80,9 +104,14 @@
             </a>
         </div>
 
-        <div class="inner-container">
+        <div class="inner-container asset-item" data-tags="portal spritesheet">
             <img src="post/assets_portals.gif" alt="Cover Image">
             <p1>PORTAL MONOLITH</p1>
+       
+            <div class="asset-tags">
+                <span class="asset-tag">portal</span>
+                <span class="asset-tag">spritesheet</span>
+            </div>
             <p class="size1">EXTERNAL LINK TO ITCH.IO SHOP</p>
             <!-- Button mit Link -->
             <a href="https://arijkx.itch.io/pixel-art-portal-monolith" target="_blank">
@@ -104,6 +133,39 @@
     <div id="footer-placeholder"></div>
     
     <div id="scroll-to-top-placeholder"></div>
+    
+    <!-- Asset Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.asset-filter-btn');
+            const assetItems = document.querySelectorAll('.asset-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const selectedTag = this.getAttribute('data-tag');
+                    
+                    // Filter assets
+                    assetItems.forEach(item => {
+                        if (selectedTag === 'all') {
+                            item.style.display = '';
+                        } else {
+                            const itemTags = item.getAttribute('data-tags').split(' ');
+                            if (itemTags.includes(selectedTag)) {
+                                item.style.display = '';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -257,6 +257,20 @@ a:active {
 
 }
 
+.filter-container {
+    padding-top: 32px;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 5px;
+    background-color: #0d001a;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
 .content-container {
     padding-top: 32px;
     padding-left: 10%;
@@ -266,7 +280,6 @@ a:active {
     background-color: #0d001a;
     color: #ffffff;
     text-align: center;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -625,6 +638,74 @@ a:active {
     height: auto;
     margin-bottom: 10px;
     image-rendering: pixelated;
+}
+
+/* A S S E T   T A G S */
+
+.asset-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+}
+
+.asset-tag {
+    font-size: 8px;
+    color: #befeff;
+    background-color: #314050;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid #598283;
+    text-transform: lowercase;
+    font-family: PixelFont;
+    letter-spacing: 0.5px;
+}
+
+/* A S S E T   F I L T E R */
+
+.asset-filter-container {
+
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.asset-filter-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.asset-filter-btn {
+    font-size: 12px;
+    color: #befeff;
+    background-color: #314050;
+    padding: 6px 14px;
+    border-radius: 3px;
+    border: 1px solid #598283;
+    text-transform: lowercase;
+    font-family: PixelFont;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.asset-filter-btn:hover {
+    background-color: #4c5968;
+    border-color: #809e9f;
+}
+
+.asset-filter-btn.active {
+    background-color: #befeff;
+    color: #0d001a;
+    border-color: #befeff;
+    font-weight: bold;
 }
 
 
