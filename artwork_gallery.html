@@ -15,6 +15,7 @@
     <script src="levelsystem/level-system.js"></script>
     <script src="levelsystem/quest-system.js"></script>
     <script src="scripts/gallery-preview.js"></script>
+    <script src="scripts/gallery-filter.js"></script>
     <link rel="icon" sizes="16x16" type="image/png" href="img/logo/logo16.png">
     <link rel="icon" sizes="32x32" type="image/png" href="img/logo/logo32.png">
 </head>
@@ -143,42 +144,18 @@
 
     </div>
 
+    <div class="content-container">
+        <div class="inner-container">
+            <a href="index.html" target="_self">
+                <button class="inner-container-button">go back</button>
+            </a>
+        </div>
+    </div>
+
     <div id="footer-placeholder"></div>
     
     <div id="scroll-to-top-placeholder"></div>
-    
-    <!-- Gallery Filter Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.asset-filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const selectedTag = this.getAttribute('data-tag');
-                    
-                    // Filter gallery items
-                    galleryItems.forEach(item => {
-                        if (selectedTag === 'all') {
-                            item.style.display = '';
-                        } else {
-                            const itemTags = item.getAttribute('data-tags').split(' ');
-                            if (itemTags.includes(selectedTag)) {
-                                item.style.display = '';
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+
 </body>
 
 </html>
