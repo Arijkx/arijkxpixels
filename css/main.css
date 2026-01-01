@@ -486,6 +486,52 @@ a:active {
     transition: transform 0.1s ease-out;
 }
 
+.gallery-preview-image-switcher {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+    max-height: calc(90vh - 100px);
+    overflow-y: auto;
+}
+
+.gallery-preview-image-switcher-btn {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(27, 33, 39, 0.9);
+    border: 2px solid #befeff;
+    border-radius: 3px;
+    color: #befeff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-family: PixelFont;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.gallery-preview-image-switcher-btn:hover {
+    background-color: #befeff;
+    color: #0d001a;
+}
+
+.gallery-preview-image-switcher-btn:active {
+    transform: scale(0.95);
+}
+
+.gallery-preview-image-switcher-btn.active {
+    background-color: #befeff;
+    color: #0d001a;
+    border-color: #befeff;
+}
+
 .gallery-preview-controls {
     position: absolute;
     bottom: 20px;
@@ -605,6 +651,19 @@ a:active {
     .gallery-preview-zoom-btn {
         width: 35px;
         height: 35px;
+        font-size: 12px;
+    }
+    
+    .gallery-preview-image-switcher {
+        bottom: 10px;
+        left: 10px;
+        gap: 4px;
+        max-height: calc(95vh - 80px);
+    }
+    
+    .gallery-preview-image-switcher-btn {
+        width: 30px;
+        height: 30px;
         font-size: 12px;
     }
     

@@ -32,10 +32,21 @@ function initializeGalleryIcons() {
             </svg>
         `;
         
+        // Get multiple images if available
+        const previewImagesJson = container.getAttribute('data-preview-images');
+        let previewImages = null;
+        if (previewImagesJson) {
+            try {
+                previewImages = JSON.parse(previewImagesJson);
+            } catch (e) {
+                console.error('Error parsing preview images:', e);
+            }
+        }
+        
         // Add click handler
         expandIcon.addEventListener('click', function(e) {
             e.stopPropagation();
-            showGalleryPreview(previewImage, previewTitle, previewDescription);
+            showGalleryPreview(previewImage, previewTitle, previewDescription, previewImages);
         });
         
         // Insert icon as first child
@@ -46,13 +57,13 @@ function initializeGalleryIcons() {
         if (image) {
             image.style.cursor = 'pointer';
             image.addEventListener('click', function() {
-                showGalleryPreview(previewImage, previewTitle, previewDescription);
+                showGalleryPreview(previewImage, previewTitle, previewDescription, previewImages);
             });
         }
     });
 }
 
-function showGalleryPreview(imagePath, title, description = '') {
+function showGalleryPreview(imagePath, title, description = '', imageList = null) {
     // Create overlay
     const overlay = document.createElement('div');
     overlay.className = 'gallery-preview-overlay';
@@ -60,6 +71,18 @@ function showGalleryPreview(imagePath, title, description = '') {
     // Create preview popup
     const preview = document.createElement('div');
     preview.className = 'gallery-preview-popup';
+    
+    // Create image switcher buttons if multiple images are available
+    let imageSwitcherHTML = '';
+    if (imageList && imageList.length > 1) {
+        imageSwitcherHTML = '<div class="gallery-preview-image-switcher">';
+        imageList.forEach((imgPath, index) => {
+            const isActive = imgPath === imagePath ? 'active' : '';
+            const imageName = imgPath.split('/').pop().replace('artworks_dark_guardian_', '').replace('.gif', '').replace(/_/g, ' ');
+            imageSwitcherHTML += `<button class="gallery-preview-image-switcher-btn ${isActive}" data-image-index="${index}" data-image-path="${imgPath}" title="${imageName}">${index + 1}</button>`;
+        });
+        imageSwitcherHTML += '</div>';
+    }
     
     preview.innerHTML = `
         <div class="gallery-preview-content">
@@ -70,6 +93,7 @@ function showGalleryPreview(imagePath, title, description = '') {
                 <button class="gallery-preview-zoom-btn" data-zoom="3" title="Zoom 3x">3x</button>
                 <button class="gallery-preview-zoom-btn" data-zoom="4" title="Zoom 4x">4x</button>
             </div>
+            ${imageSwitcherHTML}
             <div class="gallery-preview-image-container">
                 <img src="${imagePath}" alt="${title}" class="gallery-preview-image" draggable="false" oncontextmenu="return false;" onselectstart="return false;">
             </div>
@@ -97,6 +121,46 @@ function showGalleryPreview(imagePath, title, description = '') {
     // Get image and container elements
     const imageContainer = preview.querySelector('.gallery-preview-image-container');
     const previewImage = preview.querySelector('.gallery-preview-image');
+    
+    // Handle image switching if multiple images are available
+    if (imageList && imageList.length > 1) {
+        overlay.dataset.imageList = JSON.stringify(imageList);
+        
+        const switcherButtons = preview.querySelectorAll('.gallery-preview-image-switcher-btn');
+        
+        switcherButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const newImagePath = this.getAttribute('data-image-path');
+                
+                // Update active button
+                switcherButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Change image source
+                previewImage.src = newImagePath;
+                
+                // Reset transform when switching images
+                previewImage.style.transform = 'translate(0, 0) scale(1)';
+                
+                // Wait for image to load, then reinitialize pan functionality
+                const handleImageSwitch = function() {
+                    // Reinitialize pan functionality for the new image
+                    initializePanFunctionality(imageContainer, previewImage, overlay);
+                    previewImage.removeEventListener('load', handleImageSwitch);
+                };
+                
+                if (previewImage.complete) {
+                    // Image already loaded
+                    setTimeout(() => {
+                        initializePanFunctionality(imageContainer, previewImage, overlay);
+                    }, 50);
+                } else {
+                    // Wait for image to load
+                    previewImage.addEventListener('load', handleImageSwitch, { once: true });
+                }
+            });
+        });
+    }
     
     // Initialize pan functionality
     let isDragging = false;
