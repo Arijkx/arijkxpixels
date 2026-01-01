@@ -79,7 +79,11 @@ function showGalleryPreview(imagePath, title, description = '', imageList = null
         imageList.forEach((imgPath, index) => {
             const isActive = imgPath === imagePath ? 'active' : '';
             const imageName = imgPath.split('/').pop().replace('artworks_dark_guardian_', '').replace('.gif', '').replace(/_/g, ' ');
-            imageSwitcherHTML += `<button class="gallery-preview-image-switcher-btn ${isActive}" data-image-index="${index}" data-image-path="${imgPath}" title="${imageName}">${index + 1}</button>`;
+            imageSwitcherHTML += `
+                <div class="gallery-preview-image-switcher-item">
+                    <button class="gallery-preview-image-switcher-btn ${isActive}" data-image-index="${index}" data-image-path="${imgPath}" title="${imageName}">${index + 1}</button>
+                    <span class="gallery-preview-image-switcher-label">${imageName}</span>
+                </div>`;
         });
         imageSwitcherHTML += '</div>';
     }
@@ -127,14 +131,25 @@ function showGalleryPreview(imagePath, title, description = '', imageList = null
         overlay.dataset.imageList = JSON.stringify(imageList);
         
         const switcherButtons = preview.querySelectorAll('.gallery-preview-image-switcher-btn');
+        const switcherItems = preview.querySelectorAll('.gallery-preview-image-switcher-item');
+        
+        // Mark initial active item
+        switcherItems.forEach(item => {
+            const btn = item.querySelector('.gallery-preview-image-switcher-btn');
+            if (btn && btn.classList.contains('active')) {
+                item.classList.add('active');
+            }
+        });
         
         switcherButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 const newImagePath = this.getAttribute('data-image-path');
                 
-                // Update active button
+                // Update active button and item
                 switcherButtons.forEach(b => b.classList.remove('active'));
+                switcherItems.forEach(item => item.classList.remove('active'));
                 this.classList.add('active');
+                this.closest('.gallery-preview-image-switcher-item').classList.add('active');
                 
                 // Change image source
                 previewImage.src = newImagePath;
