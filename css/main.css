@@ -779,6 +779,7 @@ a:active {
 .inner-container a {
     display: inline-block;
     align-self: center;
+    margin-top: auto;
 }
 
 .inner-container-button {
